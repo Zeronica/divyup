@@ -1,3 +1,7 @@
 <template name="home">
-	{{> menu}}
+	{{#if currentUser}}
+		{{> storeMenu}}
+	{{else}}
+		{{> login}}
+	{{/if}}
 </template>

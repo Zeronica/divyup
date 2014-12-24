@@ -1,14 +1,13 @@
+Stores = new Meteor.Collection('stores');
+
 Drivers = new Meteor.Collection('drivers');
 
-Stores = new Meteor.Collection('stores');
+Divys = new Meteor.Collection('divys');
 
 Orders = new Meteor.Collection('orders');
 
-Menus = new Meteor.Collection('menus');
+OrderItems = new Meteor.Collection('orderItems');
 
-MenuItems = new Meteor.Collection('menuItems');
+MenuItems = new Meteor.Collection('menuItems')
 
-OrderUsers = new Meteor.Collection('orderUsers');
-
-OrderUserItems = new Meteor.Collection('orderUserItems');
 

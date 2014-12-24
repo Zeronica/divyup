@@ -7,7 +7,6 @@ insecure
 standard-app-packages
 iron:router
 accounts-base
-accounts-ui
 accounts-password
 autopublish
 ian:accounts-ui-bootstrap-3

@@ -1,5 +1,5 @@
 Template.home.helpers({
-	'userIsLoggedIn': function() {
-		return Meteor.user() != undefined;
+	'f_isDriver': function(){
+		return Drivers.findOne({user_id: Meteor.userId()})
 	}
 })

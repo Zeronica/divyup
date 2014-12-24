@@ -3,6 +3,10 @@ if (Meteor.users.find().count() === 0) {
       username: "Tony",
       password: "password"
     });
+  var user_driver_id = Accounts.createUser({
+  	username: "TheCourier",
+  	password: "password"
+  })
 }
 
 if (Stores.find().count() === 0) {
@@ -13,7 +17,8 @@ if (Stores.find().count() === 0) {
 
 if (Drivers.find().count() === 0) {
 	var driver_id = Drivers.insert({
-		driverName: "David",
+		user_id: user_driver_id,
+		driverName: "Courier",
 		store_id: store_id
 	});
 }

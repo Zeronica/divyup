@@ -8,6 +8,8 @@ Orders = new Meteor.Collection('orders');
 
 OrderItems = new Meteor.Collection('orderItems');
 
-MenuItems = new Meteor.Collection('menuItems')
+MenuItems = new Meteor.Collection('menuItems');
+
+DriverStatus = new Meteor.Collection('driverStatus');
 
 

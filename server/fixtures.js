@@ -15,11 +15,20 @@ if (Stores.find().count() === 0) {
 	});
 }
 
+/*reference table for status of the driver*/
+/*array implementation leaves potential for server error*/
+if (DriverStatus.find().count() === 0) {
+	DriverStatus.insert({
+		reference: ["Inactive", "Going", "Returning", "Delivering"]
+	});
+}
+
 if (Drivers.find().count() === 0) {
 	var driver_id = Drivers.insert({
 		user_id: user_driver_id,
 		driverName: "Courier",
-		store_id: store_id
+		store_id: store_id,
+		status: 0
 	});
 }
 
@@ -50,5 +59,3 @@ if (OrderItems.find().count() === 0) {
 		menu_item_id: menu_item_id
 	});
 }
-
-

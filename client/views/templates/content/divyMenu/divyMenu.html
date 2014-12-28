@@ -1,5 +1,7 @@
 <template name="divyMenu">
 	<div class="list-group">
+	{{>backButton to_name="storeMenu"}}
+	{{>menuHeader header_text="Choose your Divy here!"}}
 		{{#each f_drivers}}
 			<div class="center">  
 				<a href="#" class="list-group-item">

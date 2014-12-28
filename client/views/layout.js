@@ -1,6 +1,7 @@
-Template.layout.events({
-	'click #menu-toggle': function(e) {
-		e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
+Template.sideBar.helpers({
+	'username': function() {
+		m = Meteor.user().username;
+		console.log(m);
+		return Meteor.user().username;
 	}
 });

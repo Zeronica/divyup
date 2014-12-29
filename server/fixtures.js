@@ -1,3 +1,4 @@
+// Users
 if (Meteor.users.find().count() === 0) {
   var user_id = Accounts.createUser({
       username: "Tony",
@@ -9,10 +10,60 @@ if (Meteor.users.find().count() === 0) {
   })
 }
 
+
+//Stores
+var stores = [
+	{
+		storename: 'In-n-Out',
+		distance: '10',
+		distance_unit: 'mi',
+		open: true
+	},
+	{
+		storename: 'Wendys',
+		distance: '7',
+		distance_unit: 'mi',
+		open: true
+	},
+	{
+		storename: 'Jack-in-the-box',
+		distance: '6',
+		distance_unit: 'mi',
+		open: false
+	},
+	{
+		storename: 'Mcdonalds',
+		distance: '8',
+		distance_unit: 'mi',
+		open: true
+	}
+];
+
 if (Stores.find().count() === 0) {
-	var store_id = Stores.insert({
-		storeName: "In-n-Out"
-	});
+	var store_id = Stores.insert(stores[0]);
+	Stores.insert(stores[1]);
+	Stores.insert(stores[2]);
+	Stores.insert(stores[3]);
+}
+
+
+//Divys
+var divys = [
+	{
+		title: "omfg i'm so hungry",
+		quota: 200,
+		total: 185,
+		store_id: store_id
+	},{
+		title: "lets get this quick",
+		quota: 200,
+		total: 75,
+		store_id: store_id
+	}
+];
+if (Divys.find().count() === 0) {
+	var divy_id = Divys.insert(divys[0]);
+	Divys.insert(divys[1]);
 }
 
 /*reference table for status of the driver*/
@@ -29,13 +80,6 @@ if (Drivers.find().count() === 0) {
 		driverName: "Courier",
 		store_id: store_id,
 		status: 0
-	});
-}
-
-if (Divys.find().count() === 0) {
-	var divy_id = Divys.insert({
-		store_id: store_id,
-		driver_id: driver_id
 	});
 }
 

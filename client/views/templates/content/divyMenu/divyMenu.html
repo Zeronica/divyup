@@ -1,11 +1,13 @@
 <template name="divyMenu">
 	<div class="list-group">
 	{{>backButton to_name="storeMenu"}}
-	{{>menuHeader header_text="Choose your Divy here!"}}
-		{{#each f_drivers}}
+		{{#each f_divys}}
 			<div class="center">  
 				<a href="#" class="list-group-item">
-			    	<h4 class="list-group-item-heading">{{driverName}}</h4>
+			    	<h4 class="list-group-item-heading">{{title}}</h4>
+			    	<p class="list-group-item-text">current Divy: {{total}}/{{quota}}</p>
+			    		<p class="list-group-item-text">{{f_storename}}
+			    		</p>	
 			  	</a>
 		  	</div>
 	  	{{/each}}

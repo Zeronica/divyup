@@ -10,4 +10,3 @@ Template.storeMenu.events({
 		Router.go('divyMenu', {_id: this._id});
 	}
 })
-

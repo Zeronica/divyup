@@ -7,3 +7,10 @@ Template.divyMenu.helpers({
 		return Stores.findOne({_id: this._id});
 	}
 })
+
+Template.divyMenu.events({
+	'click [name=commitDivy]': function(e) {
+		e.preventDefault();
+		Router.go('foodMenu', {_id: this.store_id});
+	}
+})

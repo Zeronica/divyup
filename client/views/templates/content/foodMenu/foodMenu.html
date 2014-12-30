@@ -1,0 +1,10 @@
+<template name="foodMenu">
+	<ul class="list-group">
+		{{#each f_menuItems}}	
+		  <li class="list-group-item">
+		    <span class="badge">${{price}}</span>
+		    {{name}}
+		  </li>
+		{{/each}}
+	</ul>
+</template>

@@ -31,6 +31,10 @@ body {
   text-align: center;
 }
 
+.force_right {
+  float: right;
+}
+
 /*-------header.html------------*/
 
 /*.navbar, .navbar > container-fluid, .navbar-header, .navbar-brand {

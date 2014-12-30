@@ -1,15 +1,18 @@
 <template name="divyMenu">
 	<div class="list-group">
 	{{>backButton to_name="storeMenu"}}
-		{{#each f_divys}}
-			<div class="center">  
+	{{>newButton}}
+		{{#each f_divys}} 
 				<a href="#" class="list-group-item">
-			    	<h4 class="list-group-item-heading">{{title}}</h4>
-			    	<p class="list-group-item-text">current Divy: {{total}}/{{quota}}</p>
-			    		<p class="list-group-item-text">{{f_storename}}
-			    		</p>	
+			    	<h4 class="list-group-item-heading">
+			    		{{title}}
+			    	</h4>
+			    	<p class="list-group-item-text">
+			    		current Divy: {{total}}/{{quota}}
+			    		<span class="badge"><button type="button" class="btn btn-default">Divy!</button></span>
+			    	</p>
+			    	<p class="list-group-item-text">{{f_storename}}</p>
 			  	</a>
-		  	</div>
 	  	{{/each}}
 	</div>
 </template>

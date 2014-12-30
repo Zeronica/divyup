@@ -38,7 +38,6 @@ var stores = [
 		open: true
 	}
 ];
-
 if (Stores.find().count() === 0) {
 	var store_id = Stores.insert(stores[0]);
 	Stores.insert(stores[1]);
@@ -50,15 +49,15 @@ if (Stores.find().count() === 0) {
 //Divys
 var divys = [
 	{
+		store_id: store_id,
 		title: "omfg i'm so hungry",
 		quota: 200,
-		total: 185,
-		store_id: store_id
+		total: 185
 	},{
+		store_id: store_id,
 		title: "lets get this quick",
 		quota: 200,
-		total: 75,
-		store_id: store_id
+		total: 75
 	}
 ];
 if (Divys.find().count() === 0) {
@@ -66,40 +65,66 @@ if (Divys.find().count() === 0) {
 	Divys.insert(divys[1]);
 }
 
-/*reference table for status of the driver*/
-/*array implementation leaves potential for server error*/
-if (DriverStatus.find().count() === 0) {
-	DriverStatus.insert({
-		reference: ["Inactive", "Going", "Returning", "Delivering"]
-	});
-}
 
-if (Drivers.find().count() === 0) {
-	var driver_id = Drivers.insert({
-		user_id: user_driver_id,
-		driverName: "Courier",
-		store_id: store_id,
-		status: 0
-	});
-}
-
+//Orders
 if (Orders.find().count() === 0) {
 	var order_id = Orders.insert({
-		divy_id: divy_id
+		user_id: user_id
 	});
 }
 
-if (MenuItems.find().count() === 0) {
-	var menu_item_id = MenuItems.insert({
-		store_id: store_id,	
-		name: "Triple Cheese and meat burger",
-		price: 6.99
+
+//DivyOrders
+if (Orders.find().count() === 0) {
+	var divy_order_id = DivyOrders.insert({
+		divy_id:divy_id,
+		order_id:order_id
 	});
 }
 
+
+//OrderItems
 if (OrderItems.find().count() === 0) {
-	OrderItems.insert({
-		order_id: order_id,
-		menu_item_id: menu_item_id
+	var order_item_id = OrderItems.insert({
+		order_id: order_id
 	});
 }
+
+//Menus
+if (Menus.find().count() === 0) {
+	var menu_id = Menus.insert({
+		store_id: store_id
+	});
+}
+
+
+//MenuItems
+if (MenuItems.find().count() === 0) {
+	var menuItems = [
+		{
+			menu_id: menu_id,
+			name: "Double Meat",
+			price: 4.99
+		},
+		{
+			menu_id: menu_id,
+			name: "3 x 3",
+			price: 5.99
+		},
+		{
+			menu_id: menu_id,
+			name: "4 x 4",
+			price: 6.99
+		},
+		{
+			menu_id: menu_id,
+			name: "Protein Style (for mad gains yo)",
+			price: 5.99
+		}
+	];
+	for (i=0; i<menuItems.length; i++) {
+		MenuItems.insert(menuItems[i]);
+	} 
+};
+
+// No fixture data for OrderItems

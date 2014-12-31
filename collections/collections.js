@@ -45,5 +45,3 @@ menu_id
 name
 prices
 */
-
-

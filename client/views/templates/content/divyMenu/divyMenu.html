@@ -1,6 +1,6 @@
 <template name="divyMenu">
 	<div class="list-group">
-	{{>backButton to_name="storeMenu"}}
+	{{>backButton router_code="Router.go('storeMenu')"}}
 	{{>newButton}}
 		{{#each f_divys}} 
 				<a href="#" class="list-group-item">

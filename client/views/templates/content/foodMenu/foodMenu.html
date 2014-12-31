@@ -1,5 +1,6 @@
 <template name="foodMenu">
 	<ul class="list-group">
+		{{>backButton _id=this._id router_code="Router.go('divyMenu', {_id: this._id})" }}
 		{{#each f_menuItems}}	
 		  <li class="list-group-item">
 		    <span class="badge">${{price}}</span>

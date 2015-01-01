@@ -26,14 +26,6 @@ Template.divyMenu.helpers({
 		hour = ~~(time/100);
 		minutes = time % 100;
 		return hour + ":" + minutes;
-	}, 
-
-	'f_countDown': function() {
-		depart_time = DeliveryWindows.findOne({_id: this._id}).depart_time;
-		currTime = ~~((Meteor.realServerTime()%86400000)/3600000);
-		console.log(currTime);
-		difference = depart_time - currTime;
-		return ~~(difference/100) + ":" +difference%100; 
 	}
 })
 

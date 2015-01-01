@@ -45,3 +45,9 @@ menu_id
 name
 prices
 */
+
+Drivers = new Meteor.Collection('drivers');
+/*
+user_id
+delivery_window
+*/

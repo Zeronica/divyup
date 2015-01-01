@@ -4,10 +4,6 @@ if (Meteor.users.find().count() === 0) {
       username: "Tony",
       password: "password"
     });
-  var user_driver_id = Accounts.createUser({
-  	username: "TheCourier",
-  	password: "password"
-  })
 }
 
 
@@ -47,23 +43,23 @@ if (Stores.find().count() === 0) {
 
 
 //Divys
-var divys = [
-	{
-		store_id: store_id,
-		title: "omfg i'm so hungry",
-		quota: 200,
-		total: 185
-	},{
-		store_id: store_id,
-		title: "lets get this quick",
-		quota: 200,
-		total: 75
-	}
-];
-if (Divys.find().count() === 0) {
-	var divy_id = Divys.insert(divys[0]);
-	Divys.insert(divys[1]);
-}
+// var divys = [
+// 	{
+// 		store_id: store_id,
+// 		title: "omfg i'm so hungry",
+// 		quota: 200,
+// 		total: 185
+// 	},{
+// 		store_id: store_id,
+// 		title: "lets get this quick",
+// 		quota: 200,
+// 		total: 75
+// 	}
+// ];
+// if (Divys.find().count() === 0) {
+// 	var divy_id = Divys.insert(divys[0]);
+// 	Divys.insert(divys[1]);
+// }
 
 
 //Orders

@@ -1,9 +1,10 @@
 <template name="header">
 	<div class="navigation-bar">
 	  <div class="navigation-bar__left">
-	  	{{#if left_action}}
-		    <span class="toolbar-button--quiet navigation-bar__line-height">
+	  	{{#if back_route}}
+		    <span id="back" class="toolbar-button--quiet navigation-bar__line-height">
 		      <i class="ion-navicon" style="font-size:32px; vertical-align:-6px;"></i>
+		      Back
 		    </span>
 	    {{/if}}
 	  </div>

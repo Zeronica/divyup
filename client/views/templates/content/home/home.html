@@ -1,10 +1,6 @@
 <template name="home">
 	{{#if currentUser}}
-		{{# if f_isDriver}}
-			{{> driverMenu}}
-		{{else}}
-			{{> storeMenu}}
-		{{/if}}
+		{{> storeMenu}}
 	{{else}}
 		{{> login}}
 	{{/if}}

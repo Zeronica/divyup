@@ -5,7 +5,7 @@ Template.storeMenu.helpers({
 })
 
 Template.storeMenu.events({
-	'click .list-group-item': function(e) {
+	'click [name=storeItem]': function(e) {
 		e.preventDefault();
 		Router.go('divyMenu', {_id: this._id});
 	}

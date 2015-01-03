@@ -19,6 +19,7 @@ total
 Orders = new Meteor.Collection('orders');
 /*
 user_id
+store_id
 */
 
 

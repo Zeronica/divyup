@@ -1,4 +1,4 @@
-<template name="storeMenu">
+<!-- <template name="storeMenu">
 	<div class="list-group">
 		{{#each f_stores}}
 			<div class="center">  
@@ -10,5 +10,46 @@
 			  	</a>
 		  	</div>
 	  	{{/each}}
+	</div>
+</template> -->
+
+<template name="storeMenu">
+	{{> header title="Store Menu"}}
+	<ul class="list">
+	{{#each f_stores}}
+	  <li class="list__item list__item--tappable" name="storeItem">
+	    <h3>{{storename}}</h3>
+	    <p>{{distance}} {{distance_unit}} away. 
+	    	{{#if open}}Open{{else}}Closed{{/if}}
+	    </p>
+	  </li>
+	{{/each}}
+	</ul>
+
+	<!-- Prerequisite=This example use ionicons(http://ionicons.com) to display icons. -->
+	<div class="tab-bar">
+	  <label class="tab-bar__item">
+	    <input type="radio" name="tab-bar-a" checked="checked">
+	    <button class="tab-bar__button">
+	      <i class="tab-bar__icon ion-stop"></i>
+	      <div class="tab-bar__label">Stores</div>
+	    </button>
+	  </label>
+
+	  <label class="tab-bar__item">
+	    <input type="radio" name="tab-bar-a">
+	    <button class="tab-bar__button">
+	      <i class="tab-bar__icon ion-record"></i>
+	      <div class="tab-bar__label">My Orders</div>
+	    </button>
+	  </label>
+
+	  <label class="tab-bar__item">
+	    <input type="radio" name="tab-bar-a">
+	    <button class="tab-bar__button">
+	      <i class="tab-bar__icon ion-star"></i>
+	      <div class="tab-bar__label">Settings</div>
+	    </button>
+	  </label>
 	</div>
 </template>

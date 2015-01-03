@@ -1,4 +1,4 @@
-<template name="divyMenu">
+<!-- <template name="divyMenu">
 	<div class="list-group">
 	{{>backButton router_code="Router.go('storeMenu')"}}
 	{{>newButton}}
@@ -26,4 +26,42 @@
 			  	</a>
 	  	{{/each}}
 	</div>
+</template>
+ -->
+<template name="divyMenu">
+	{{>header_stealth}}
+	<div class="card">
+	<div class="card-name">{{storename}}}</div>
+          <div class="card-desc">For you fat chumps (description)<br>Delivery window 6:00pm to 11:pm</div>
+	</div>
+
+	<div class="rating"><div class="rating-num">
+	            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+	            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+	            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+	            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+	            <ons-icon icon="fa-star-half" fixed-width="false"></ons-icon>
+	            Delivering now!
+	</div></div>
+
+	<ul class="list">
+	  <li class="list__header">
+	    Divys
+	  </li>
+<!-- 	  {{#each f_divys}}
+		  <li class="list__item">
+		    {{title}}
+		  </li>
+	  {{/each}}
+
+	  <li class="list__header">
+	    Delivery Windows
+	  </li> -->
+	  {{#each f_deliveryWindows}}
+		  <li class="list__item list__item--chevron" name="commitDivy">
+		    <p>Depart time: {{f_departTime}}</p>
+		    <p>Arrival time: {{f_arrivalTime}}</p>
+		  </li>
+		{{/each}}
+	</ul>
 </template>

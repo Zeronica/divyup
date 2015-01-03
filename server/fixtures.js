@@ -62,29 +62,30 @@ if (Stores.find().count() === 0) {
 // }
 
 
-//Orders
-if (Orders.find().count() === 0) {
-	var order_id = Orders.insert({
-		user_id: user_id
-	});
-}
+// //Orders
+// if (Orders.find().count() === 0) {
+// 	var order_id = Orders.insert({
+// 		user_id: user_id,
+// 		store_id: store_id
+// 	});
+// }
 
 
-//DivyOrders
-if (Orders.find().count() === 0) {
-	var divy_order_id = DivyOrders.insert({
-		divy_id:divy_id,
-		order_id:order_id
-	});
-}
+// //DivyOrders
+// if (DivyOrders.find().count() === 0) {
+// 	var divy_order_id = DivyOrders.insert({
+// 		divy_id:divy_id,
+// 		order_id:order_id
+// 	});
+// }
 
 
-//OrderItems
-if (OrderItems.find().count() === 0) {
-	var order_item_id = OrderItems.insert({
-		order_id: order_id
-	});
-}
+// //OrderItems
+// if (OrderItems.find().count() === 0) {
+// 	var order_item_id = OrderItems.insert({
+// 		order_id: order_id
+// 	});
+// }
 
 //Menus
 if (Menus.find().count() === 0) {
@@ -124,3 +125,81 @@ if (MenuItems.find().count() === 0) {
 };
 
 // No fixture data for OrderItems
+
+// All delivery data
+if (DeliveryWindows.find().count() === 0) {
+
+	store_a = Stores.find().fetch();
+  
+  	for (i=0; i<store_a.length; i++) {
+		w = DeliveryWindows.insert({
+			depart_time: 2000,
+			arrival_time: 2045,
+			store_id: store_a[i]._id
+		});
+		d = Accounts.createUser({
+	      	username: "Driver" + (1 + i),
+	      	password: "password"
+	    });
+	  Drivers.insert({
+	    	user_id: d,
+	    	delivery_window: w
+	  });
+
+		w = DeliveryWindows.insert({
+			depart_time: 2100,
+			arrival_time: 2145,
+			store_id: store_a[i]._id
+		});
+		d = Accounts.createUser({
+	      	username: "Driver" + (2 + i),
+	      	password: "password"
+	    });
+	  Drivers.insert({
+	    	user_id: d,
+	    	delivery_window: w
+	  });
+
+		w = DeliveryWindows.insert({
+			depart_time: 2200,
+			arrival_time: 2245,
+			store_id: store_a[i]._id
+		});
+		d = Accounts.createUser({
+	      	username: "Driver" + (3 + i),
+	      	password: "password"
+	    });
+	  Drivers.insert({
+	    	user_id: d,
+	    	delivery_window: w
+	    });
+
+		w = DeliveryWindows.insert({
+			depart_time: 2300,
+			arrival_time: 2345,
+			store_id: store_a[i]._id
+		});
+		d = Accounts.createUser({
+	      	username: "Driver" + (4 + i),
+	      	password: "password"
+	    });
+	  Drivers.insert({
+	    	user_id: d,
+	    	delivery_window: w
+	    });
+
+		w = DeliveryWindows.insert({
+			depart_time: 0000,
+			arrival_time: 0045,
+			store_id: store_a[i]._id
+		});
+		d = Accounts.createUser({
+	      	username: "Driver4",
+	      	password: "password"
+	    });
+	  Drivers.insert({
+	    	user_id: d,
+	    	delivery_window: w
+	    });
+	}
+}

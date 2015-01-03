@@ -1,26 +1,5 @@
 <template name="layout">
-
-	<div id="header">
-		{{> header}}
-	</div>
-
-	<div id="content">
-		<div id="wrapper">
-			{{> sideBar}}
-        
-	        <div id="page-content-wrapper">
-	            <div class="container-fluid">
-	                <div class="row">
-						<div class="jumbotron">
-							{{> yield}}
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-	</div> 
-
+	{{> yield}}
 </template>
 
 <template name="sideBar">

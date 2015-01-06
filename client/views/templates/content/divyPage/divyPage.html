@@ -1,0 +1,21 @@
+<template name="divyPage">
+	<ul class="list">
+	<li class="list__item">
+		<p>Depart time: {{f_departTime}}</p>
+		<p>Arrival time: {{f_arrivalTime}}</p>
+		<p>Orders: {{total}}/{{quota}}</p>
+	</li>
+	</ul>
+	
+	<ul class="list">
+	{{#each comments}}
+	{{>comment}}
+	{{/each}}
+	</ul>
+	
+	{{#if currentUser}}
+	{{> commentSubmit}}
+	{{else}}
+	<p style="padding-top:10px; padding-left:10px">Please log in to leave a comment.</p>
+	{{/if}} 
+</template>

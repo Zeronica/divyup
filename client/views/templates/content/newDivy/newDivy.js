@@ -8,7 +8,7 @@ Template.newDivy.events({
     };
     
       divy._id = Divys.insert(divy);
-    // Router.go('divyPage', divy);
+      Router.go('divyPage', divy);
   }
 
 });

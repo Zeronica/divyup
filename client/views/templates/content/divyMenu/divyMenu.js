@@ -45,9 +45,9 @@ Template.divyMenu.helpers({
 Template.divyMenu.events({
 	'click [name=commitDivy]': function(e) {
 		e.preventDefault();
-		console.log(this);
-		if (CurrentOrders.findOne(Meteor.userId())) {
-			Router.go('checkoutMenu');
+		m = CurrentOrders.findOne({user_id: Meteor.userId()});
+		if (m) {
+			Router.go('checkoutMenu', {_id: m._id});
 		}
 		else if (Orders.find({user_id: Meteor.userId(), store_id: this.store_id}).count() === 0) {
 			Router.go('foodMenu', {_id: this.store_id});

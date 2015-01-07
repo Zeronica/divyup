@@ -10,10 +10,8 @@ Template.header.events({
 });
 
 Template.header_stealth.events({
-
-	 'click [name=new]': function(e) {
-	 	e.preventDefault();
-	 	console.log("clicked");
-	 	Router.go('newDivy');
-	 }
+	'click [name=new]': function(e) {
+		e.preventDefault();
+		Router.go('newDivy');
+	}
 });

@@ -35,7 +35,11 @@ Template.divyMenu.helpers({
 		hour = ~~(time/100);
 		minutes = time % 100;
 		return hour + ":" + minutes;
-	}
+	},
+
+	commentsCount: function() {
+    return Comments.find({postId: this._id}).count();
+  }
 })
 
 Template.divyMenu.events({

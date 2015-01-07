@@ -3,13 +3,10 @@ Template.checkoutMenu.helpers({
 		return OrderItems.find({order_id: this._id});
 	}
 	
-});
-
-Template.checkoutMenu.events({
-
-	// var totalprice = 0;
-
-	// OrderItems.find({order_id: this._id}).map(function(doc) {
- //  	total += doc.price; });
-
+	totalprice: function() {
+        var total = 0;
+        OrderItems.find({order_id: this._id}).map(function(doc) {
+  	total += doc.price});
+  	return total;
+	},
 });

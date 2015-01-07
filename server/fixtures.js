@@ -42,24 +42,22 @@ if (Stores.find().count() === 0) {
 }
 
 
-//Divys
-// var divys = [
-// 	{
-// 		store_id: store_id,
-// 		title: "omfg i'm so hungry",
-// 		quota: 200,
-// 		total: 185
-// 	},{
-// 		store_id: store_id,
-// 		title: "lets get this quick",
-// 		quota: 200,
-// 		total: 75
-// 	}
-// ];
-// if (Divys.find().count() === 0) {
-// 	var divy_id = Divys.insert(divys[0]);
-// 	Divys.insert(divys[1]);
-// }
+Divys
+var divys = [
+	{
+		store_id: store_id,
+		title: "omfg i'm so hungry",
+		quota: 200
+	},{
+		store_id: store_id,
+		title: "lets get this quick",
+		quota: 200
+	}
+];
+if (Divys.find().count() === 0) {
+	var divy_id = Divys.insert(divys[0]);
+	Divys.insert(divys[1]);
+}
 
 
 // //Orders

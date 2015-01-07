@@ -1,33 +1,3 @@
-<!-- <template name="divyMenu">
-	<div class="list-group">
-	{{>backButton router_code="Router.go('storeMenu')"}}
-	{{>newButton}}
-		{{#each f_divys}} 
-				<a href="#" class="list-group-item">
-			    	<h4 class="list-group-item-heading">
-			    		{{title}}
-			    	</h4>
-			    	<p class="list-group-item-text">
-			    		current Divy: {{total}}/{{quota}}
-			    		<span class="badge"><button type="button" class="btn btn-default" name="commitDivy">Divy!</button></span>
-			    	</p>
-			    	<p class="list-group-item-text">{{f_storename}}</p>
-			  	</a>
-	  	{{/each}}
-		{{#each f_deliveryWindows}} 
-				<a href="#" class="list-group-item">
-			    	<h4 class="list-group-item-heading">
-			    		departTime: {{f_departTime}}
-			    	</h4>
-			    	<p class="list-group-item-text">
-			    		arrivalTime: {{f_arrivalTime}}
-			    		<span class="badge"><button type="button" class="btn btn-default" name="commitDivy">Divy!</button></span>
-			    	</p>
-			  	</a>
-	  	{{/each}}
-	</div>
-</template>
- -->
 <template name="divyMenu">
 	{{>header_stealth}}
 	<div class="card">
@@ -48,15 +18,19 @@
 	  <li class="list__header">
 	    Divys
 	  </li>
-<!-- 	  {{#each f_divys}}
-		  <li class="list__item">
-		    {{title}}
-		  </li>
-	  {{/each}}
+	  {{#if f_hasDivys}}
+		{{#each f_divys}}
+			<li class="list__item">
+			    {{title}}
+			</li>
+		{{/each}}
+	  {{else}}
+	  	{{f_noDivyMessage}}
+	  {{/if}}
 
 	  <li class="list__header">
 	    Delivery Windows
-	  </li> -->
+	  </li>
 	  {{#each f_deliveryWindows}}
 		  <li class="list__item list__item--chevron" name="commitDivy">
 		    <p>Depart time: {{f_departTime}}</p>

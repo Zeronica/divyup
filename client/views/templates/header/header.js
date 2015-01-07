@@ -7,9 +7,13 @@ Template.header.events({
 	'click #back': function(e) {
 		eval(this.back_route);
 	}
+});
 
-	// 'click [name=new]': function(e) {
-	// 	e.preventDefault();
-	// 	Router.go('newDivy');
-	// }
+Template.header_stealth.events({
+
+	 'click [name=new]': function(e) {
+	 	e.preventDefault();
+	 	console.log("clicked");
+	 	Router.go('newDivy');
+	 }
 });

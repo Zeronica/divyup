@@ -4,9 +4,18 @@ Template.divyMenu.helpers({
 		return Divys.find({store_id: this._id});
 	},
 
+	'f_hasDivys': function() {
+		return Divys.find({store_id: this._id}).count() > 0;
+	},
+
+	'f_noDivyMessage': function() {
+		return "Looks like no one has kickstarted a divy yet. You can start one by touching the button on the right hand corner."
+	},
+
 	'f_stores': function() {
 		return Stores.findOne({_id: this._id});
 	},
+
 
 
 	// delivery windows

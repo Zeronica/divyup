@@ -4,7 +4,7 @@ Template.newDivy.events({
     
     var divy = {
       title: $(e.target).find('[name=title]').val(),
-      store: $(e.target).find('[name=store]').val()
+      store_id: $(e.target).find('[name=store]').val()
     };
     
       divy._id = Divys.insert(divy);

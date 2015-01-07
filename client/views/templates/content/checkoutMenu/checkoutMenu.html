@@ -1,2 +1,22 @@
 <template name="checkoutMenu">
+{{>header title="Checkout Menu"}}
+
+     <form>
+      <div class="login-form">
+		<ul class="list">
+		  {{#each OrderItems}}
+		  <li class="list__item">
+		  <div style="display:inline-block;">{{name}}</div>
+		  <div style="display:inline-block; float:right;">${{price}}</div>
+		  </li>
+		  {{/each}}
+		</ul>
+		<li class="list__item">
+	    <p style="float:right;">Total:${{totalprice}}
+	    </p>
+	  </li>
+        <br><br>
+        <button type="submit" class="button button--large" name="post">Checkout</button>
+      </div>
+  	</form>
 </template>

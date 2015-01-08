@@ -44,7 +44,7 @@ MenuItems = new Meteor.Collection('menuItems');
 /*
 menu_id
 name
-prices
+price
 */
 
 Drivers = new Meteor.Collection('drivers');

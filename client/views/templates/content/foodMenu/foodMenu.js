@@ -10,8 +10,7 @@ Template.foodMenu.events({
 	'click #foodItem': function(){
 		m = CurrentOrders.findOne({user_id: Meteor.userId()});
 		if (m) {
-			console.log("already exists");
-			order_id = m._id;
+			order_id = m.order_id;
 		} else {
 			// get store_id from menu_id
 			store_id = Menus.findOne(this.menu_id).store_id;

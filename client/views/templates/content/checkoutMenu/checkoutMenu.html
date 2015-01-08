@@ -4,19 +4,19 @@
      <form>
       <div class="login-form">
 		<ul class="list">
-		  {{#each OrderItems}}
-		  <li class="list__item">
-		  <div style="display:inline-block;">{{name}}</div>
-		  <div style="display:inline-block; float:right;">${{price}}</div>
-		  </li>
+		  {{#each f_itemsInCart}}
+			  <li class="list__item">
+			  <div style="display:inline-block;">{{f_name}}</div>
+			  <div style="display:inline-block; float:right;">${{f_price}}</div>
+			  </li>
 		  {{/each}}
 		</ul>
 		<li class="list__item">
-	    <p style="float:right;">Total:${{totalprice}}
+	    <p style="float:right;">Total:${{f_currentOrderTotal}}
 	    </p>
 	  </li>
         <br><br>
-        <button type="submit" class="button button--large" name="post">Checkout</button>
+        <button type="submit" class="button button--large" id="checkout">Checkout</button>
       </div>
   	</form>
 </template>

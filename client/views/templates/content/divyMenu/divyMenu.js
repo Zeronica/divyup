@@ -1,7 +1,7 @@
 Template.divyMenu.helpers({
 	// kickStart divys
 	'f_divys': function() {
-		return Divys.find({store_id: this._id});
+		return Divys.find({store_id: this._id, quota: {$gt: 0}});
 	},
 
 	'f_hasDivys': function() {
@@ -15,7 +15,6 @@ Template.divyMenu.helpers({
 	'f_stores': function() {
 		return Stores.findOne({_id: this._id});
 	},
-
 
 
 	// delivery windows
@@ -46,11 +45,12 @@ Template.divyMenu.events({
 	'click [name=commitDivy]': function(e) {
 		e.preventDefault();
 		m = CurrentOrders.findOne({user_id: Meteor.userId()});
+		console.log(this);
 		if (m) {
-			Router.go('checkoutMenu', {_id: m._id});
+			Router.go('checkoutMenu', {_id: this.divy_id});
 		}
 		else if (Orders.find({user_id: Meteor.userId(), store_id: this.store_id}).count() === 0) {
-			Router.go('foodMenu', {_id: this.store_id});
+			Router.go('foodMenu', {_id: Divys.findOne(this.divy_id).store_id});
 		}
 		else {
 			Router.go('orderMenu', {_id: this.store_id});

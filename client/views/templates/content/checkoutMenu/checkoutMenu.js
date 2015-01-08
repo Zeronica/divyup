@@ -19,9 +19,8 @@ Template.checkoutMenu.helpers({
 Template.checkoutMenu.events({
 	'click #checkout': function(e) {
 		e.preventDefault();
-		console.log('before m');
 		m = Meteor.myFunctions.getCurrentOrder();
-
-		return Meteor.myFunctions.checkoutCurrentOrder(this._id, m.order_id);
+		Meteor.myFunctions.checkoutCurrentOrder(this._id, m.order_id);
+		return alert("your order has been processed.");
 	}
 });

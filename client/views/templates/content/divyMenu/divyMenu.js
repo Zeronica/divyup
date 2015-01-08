@@ -37,7 +37,7 @@ Template.divyMenu.helpers({
 	},
 
 	commentsCount: function() {
-    return Comments.find({postId: this._id}).count();
+    return Comments.find({divyId: this._id}).count();
   }
 })
 

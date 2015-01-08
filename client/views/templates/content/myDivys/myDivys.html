@@ -1,4 +1,18 @@
 <template name="myDivys">
-	<h1>Placeholder for now, show all the divys that I am a part of (placed an order)</h1>
+	<ul class="list">
+	  <!-- <li class="list__header">
+	    My Divys
+	  </li> -->
+	  {{>header title="My Divys"}}
+		{{#each f_divyOrders}}
+		  <li class="list__item " name="commitDivy">
+		    <div style="display:inline-block">
+		    <p>Store: {{f_store}}</p>
+		    <p>Orders: {{total}}/{{quota}}</p>
+		    <p>{{commentsCount}}comments</P>
+			</div>
+		  </li>
+		{{/each}}
+	</ul>
 	{{> footer}}
 </template>

@@ -1,8 +1,7 @@
 Template.checkoutMenu.helpers({
 	'f_itemsInCart': function() {
-		console.log('before render');
-		m = Meteor.myFunctions.getCurrentOrder();
-		return OrderItems.find({order_id: m.order_id});
+		order_id = CurrentOrders.findOne({user_id: Meteor.userId()}).order_id;
+		return OrderItems.find({order_id: order_id});
 	},
 	'f_name': function() {
 		return MenuItems.findOne(this.menu_item_id).name;
@@ -11,16 +10,20 @@ Template.checkoutMenu.helpers({
 		return MenuItems.findOne(this.menu_item_id).price;
 	},
 	'f_currentOrderTotal': function() {
-		m = CurrentOrders.findOne({user_id: Meteor.userId()});
-		return Meteor.myFunctions.totalInOrder(m.order_id);
+		order_id = CurrentOrders.findOne({user_id: Meteor.userId()}).order_id;
+		return Meteor.myFunctions.totalInOrder(order_id);
 	}
 });
 
 Template.checkoutMenu.events({
 	'click #checkout': function(e) {
 		e.preventDefault();
-		m = Meteor.myFunctions.getCurrentOrder();
-		Meteor.myFunctions.checkoutCurrentOrder(this._id, m.order_id);
-		return alert("your order has been processed.");
+		Meteor.call('checkoutCurrentOrder', {user_id: Meteor.userId(), divy_id: this._id}, function(e) {
+			if (e) {
+				return alert(e);
+			} else {
+				Router.go("storeMenu");
+			}
+		});
 	}
 });

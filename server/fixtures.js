@@ -13,25 +13,29 @@ var stores = [
 		storename: 'In-n-Out',
 		distance: '10',
 		distance_unit: 'mi',
-		open: true
+		delivery_start: 1600,
+		delivery_end: 2200
 	},
 	{
 		storename: 'Wendys',
 		distance: '7',
 		distance_unit: 'mi',
-		open: true
+		delivery_start: 1600,
+		delivery_end: 2200
 	},
 	{
 		storename: 'Jack-in-the-box',
 		distance: '6',
 		distance_unit: 'mi',
-		open: false
+		delivery_start: 1600,
+		delivery_end: 2200
 	},
 	{
 		storename: 'Mcdonalds',
 		distance: '8',
 		distance_unit: 'mi',
-		open: true
+		delivery_start: 1600,
+		delivery_end: 2200	
 	}
 ];
 if (Stores.find().count() === 0) {
@@ -40,7 +44,6 @@ if (Stores.find().count() === 0) {
 	Stores.insert(stores[2]);
 	Stores.insert(stores[3]);
 }
-
 
 Divys
 var divys = [
@@ -58,32 +61,6 @@ if (Divys.find().count() === 0) {
 	var divy_id = Divys.insert(divys[0]);
 	Divys.insert(divys[1]);
 }
-
-
-// //Orders
-// if (Orders.find().count() === 0) {
-// 	var order_id = Orders.insert({
-// 		user_id: user_id,
-// 		store_id: store_id
-// 	});
-// }
-
-
-// //DivyOrders
-// if (DivyOrders.find().count() === 0) {
-// 	var divy_order_id = DivyOrders.insert({
-// 		divy_id:divy_id,
-// 		order_id:order_id
-// 	});
-// }
-
-
-// //OrderItems
-// if (OrderItems.find().count() === 0) {
-// 	var order_item_id = OrderItems.insert({
-// 		order_id: order_id
-// 	});
-// }
 
 //Menus
 if (Menus.find().count() === 0) {

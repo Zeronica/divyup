@@ -8,6 +8,8 @@ Template.foodMenu.helpers({
 
 Template.foodMenu.events({
 	'click #foodItem': function(){
+		console.log(this.name);
+		console.log(this._id);
 		m = CurrentOrders.findOne({user_id: Meteor.userId()});
 		if (m) {
 			order_id = m.order_id;
@@ -17,6 +19,6 @@ Template.foodMenu.events({
 			order_id = Meteor.myFunctions.createCurrentOrder(store_id);
 		}
 		r = Meteor.myFunctions.createOrderItem(order_id, this._id);
-		console.log(r);
+		//console.log(r);
 	}
 })

@@ -30,7 +30,7 @@ Template.divyPage.helpers({
 	},
 
 	f_deliveryWindow: function() {
-	return DeliveryWindows.finOne({divy_id: this._id}) == true;
+	return DeliveryWindows.finOne({divy_id: this._id}) != undefined;
 	}
 
 });

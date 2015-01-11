@@ -30,11 +30,10 @@ input[type=email], input[type=password] {
 .card {
   background-color: white;
   /*background-image: url(../../public/images/in_n_out.jpg);*/
-  background-image:url(in_n_out.jpg);
+/*  background-image:url(in_n_out.jpg);*/
   background-repeat: no-repeat;
   background-size: cover;
-  color: white;
-  height: 250px;
+  height: 180px;
 }
 
 .card-toolbar ons-back-button span {
@@ -44,7 +43,7 @@ input[type=email], input[type=password] {
 .card-name {
   font-weight: 600;
   font-size: 20px;
-  padding: 66px 0 8px 0;
+  padding: 33px 0 8px 0;
   text-align: center;
 }
 
@@ -64,7 +63,7 @@ input[type=email], input[type=password] {
 
 .rating-num {
   position: relative;
-  top: -24px;
+  top: -36px;
   height: 24px;
   color: white;
   line-height: 24px;
@@ -86,3 +85,56 @@ input[type=email], input[type=password] {
 }*/
 
 /*-----------------------------------------------------------------------------*/
+.listItem {
+  width: 100%;
+}
+
+.plan-list {
+  border-top: none;
+  background-image: none !important;
+}
+
+.plan {
+  line-height: 1;
+  padding: 0;
+}
+
+.plan-left {
+  text-align: right;
+  padding: 10px 10px 10px 0;
+  float: left;
+}
+
+.plan-center {
+  background-color: #3399ff;
+  opacity: 0.5;
+}
+
+.plan-right {
+  padding: 10px 40px 10px 10px;
+  float: left;
+  width: 50%;
+}
+
+.plan-date {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.plan-duration {
+  font-size: 11px;
+  opacity: 0.4;
+}
+
+.plan-name {
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.plan-info {
+  opacity: 0.4;
+  font-size: 12px;
+  line-height: 1.4;
+}

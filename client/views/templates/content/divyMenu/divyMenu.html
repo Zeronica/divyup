@@ -1,46 +1,74 @@
 <template name="divyMenu">
 	{{>header_stealth back_route="Router.go('storeMenu')" back_name="Store Menu"}}
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" />
-	<div class="card">
-	<div class="card-name">{{storename}}</div>
-          <div class="card-desc">For you fat chumps (description)<br>Delivery window 6:00pm to 11:pm</div>
-	</div>
 
-	<div class="rating"><div class="rating-num">
-	            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
-	            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
-	            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
-	            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
-	            <ons-icon icon="fa-star-half" fixed-width="false"></ons-icon>
-	            Delivering now!
-	</div></div>
+	{{> storeItem}}
 
 	<ul class="list">
-	  <li class="list__header">
-	    Divys
-	  </li>
-	  {{#if f_hasDivys}}
-		{{#each f_divys}}
-			<li class="list__item">
-			    {{title}}
-			</li>
-		{{/each}}
-	  {{else}}
-	  	{{f_noDivyMessage}}
-	  {{/if}}
-
-	  <li class="list__header">
-	    Delivery Windows
-	  </li>
-	  {{#each f_deliveryWindows}}
-		  <li class="list__item " name="commitDivy">
-		    <div style="display:inline-block">
-		    <p>Depart time: {{f_departTime}}</p>
-		    <p>Arrival time: {{f_arrivalTime}}</p>
-			</div>
-		    <!-- <i class="tab-bar__icon ion-chevron-right" style="padding-left:1075px; color:#342e30; display:inline-block;"></i> -->
-		  </li>
-		{{/each}}
+		<li class="list__header">
+	    	Kickstarters
+	  	</li>
+		{{#if f_hasDivys}}
+			{{#each f_divys}}
+				{{> existingDivy}}
+			{{/each}}
+		{{else}}
+			{{> kickstartNewDivy}}
+		{{/if}}
+		<li class="list__header">
+	    	Pre orders
+	  	</li>	
+	  	{{> preorder}}
 	</ul>
+</template>	
+
+<template name="existingDivy">
+	<li class="list__item list__item--tappable">
+      <div width="80px" class="plan-left col ons-col-inner" style="-webkit-box-flex: 0; flex: 0 0 80px; max-width: 80px;">
+        <div class="plan-date">${{f_amountNeeded}}</div>
+        <div class="plan-duration">${{f_amountPresent}}</div>
+      </div>
+
+      <div class="plan-right col ons-col-inner">
+        <div class="plan-name">Divy Up!</div>
+
+        <div class="plan-info">
+          <div ng-hide="a % 4 == 0">
+            xxx
+          </div>
+
+          <div ng-hide="a % 3 == 0">
+            xxx
+          </div>
+        </div>
+      </div>
+    </li>
+</template>
+
+<template name="kickstartNewDivy">
+	<li class="list__item list__item--tappable">
+		Kickstart new Divy!
+    </li>
+</template>
+
+<template name="preorder">
+	<li class="list__item list__item--tappable">
+	  <div width="80px" class="plan-left col ons-col-inner" style="-webkit-box-flex: 0; flex: 0 0 80px; max-width: 80px;">
+	    <div class="plan-date">{{f_beginTime}}</div>
+	    <div class="plan-duration">{{f_timeFromNow}}</div>
+	  </div>
+
+	  <div class="plan-right col ons-col-inner">
+	    <div class="plan-name">Pre Order</div>
+
+	    <div class="plan-info">
+	      <div ng-hide="a % 4 == 0">
+	        xxx
+	      </div>
+
+	      <div ng-hide="a % 3 == 0">
+	        xxx
+	      </div>
+	    </div>
+	  </div>
+	</li>
 </template>

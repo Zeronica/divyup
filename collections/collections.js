@@ -9,21 +9,6 @@ distance_unit
 open
 */
 
-Divys = new Meteor.Collection('divys');
-/*
-store_id
-title
-quota
-total
-*/
-
-Orders = new Meteor.Collection('orders');
-/*
-user_id
-store_id
-*/
-
-
 DivyOrders = new Meteor.Collection('divyOrders');
 /*
 divy_id

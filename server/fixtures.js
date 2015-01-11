@@ -45,22 +45,22 @@ if (Stores.find().count() === 0) {
 	Stores.insert(stores[3]);
 }
 
-Divys
-var divys = [
-	{
-		store_id: store_id,
-		title: "omfg i'm so hungry",
-		quota: 200
-	},{
-		store_id: store_id,
-		title: "lets get this quick",
-		quota: 200
-	}
-];
-if (Divys.find().count() === 0) {
-	var divy_id = Divys.insert(divys[0]);
-	Divys.insert(divys[1]);
-}
+// Divys
+// var divys = [
+// 	{
+// 		store_id: store_id,
+// 		title: "omfg i'm so hungry",
+// 		quota: 200
+// 	},{
+// 		store_id: store_id,
+// 		title: "lets get this quick",
+// 		quota: 200
+// 	}
+// ];
+// if (Divys.find().count() === 0) {
+// 	var divy_id = Divys.insert(divys[0]);
+// 	Divys.insert(divys[1]);
+// }
 
 //Menus
 if (Menus.find().count() === 0) {
@@ -101,105 +101,105 @@ if (MenuItems.find().count() === 0) {
 
 // No fixture data for OrderItems
 
-// All delivery data
-if (DeliveryWindows.find().count() === 0) {
+// // All delivery data
+// if (DeliveryWindows.find().count() === 0) {
 
-	store_a = Stores.find().fetch();
+// 	store_a = Stores.find().fetch();
   
-  	for (i=0; i<store_a.length; i++) {
-  		a = Divys.insert({
-  			title: "Delivery Window",
-  			store_id: store_a[i]._id,
-  			quota: 0
-  		});
-		w = DeliveryWindows.insert({
-			depart_time: 2000,
-			arrival_time: 2045,
-			divy_id: a
-		});
-		d = Accounts.createUser({
-	      	username: "Driver" + (1 + i),
-	      	password: "password"
-	    });
-	  	Drivers.insert({
-	    	user_id: d,
-	    	delivery_window: w
-	  	});
+//   	for (i=0; i<store_a.length; i++) {
+//   		a = Divys.insert({
+//   			title: "Delivery Window",
+//   			store_id: store_a[i]._id,
+//   			quota: 0
+//   		});
+// 		w = DeliveryWindows.insert({
+// 			depart_time: 2000,
+// 			arrival_time: 2045,
+// 			divy_id: a
+// 		});
+// 		d = Accounts.createUser({
+// 	      	username: "Driver" + (1 + i),
+// 	      	password: "password"
+// 	    });
+// 	  	Drivers.insert({
+// 	    	user_id: d,
+// 	    	delivery_window: w
+// 	  	});
 
-  		a = Divys.insert({
-  			title: "Delivery Window",
-  			store_id: store_a[i]._id,
-  			quota: 0
-  		});
-		w = DeliveryWindows.insert({
-			depart_time: 2100,
-			arrival_time: 2145,
-			divy_id: a
-		});
-		d = Accounts.createUser({
-	      	username: "Driver" + (2 + i),
-	      	password: "password"
-	    });
-	  	Drivers.insert({
-	    	user_id: d,
-	    	delivery_window: w
-	  	});
+//   		a = Divys.insert({
+//   			title: "Delivery Window",
+//   			store_id: store_a[i]._id,
+//   			quota: 0
+//   		});
+// 		w = DeliveryWindows.insert({
+// 			depart_time: 2100,
+// 			arrival_time: 2145,
+// 			divy_id: a
+// 		});
+// 		d = Accounts.createUser({
+// 	      	username: "Driver" + (2 + i),
+// 	      	password: "password"
+// 	    });
+// 	  	Drivers.insert({
+// 	    	user_id: d,
+// 	    	delivery_window: w
+// 	  	});
 
-  		a = Divys.insert({
-  			title: "Delivery Window",
-  			store_id: store_a[i]._id,
-  			quota: 0
-  		});
-		w = DeliveryWindows.insert({
-			depart_time: 2200,
-			arrival_time: 2245,
-			divy_id: a
-		});
-		d = Accounts.createUser({
-	      	username: "Driver" + (3 + i),
-	      	password: "password"
-	    });
-	  	Drivers.insert({
-	    	user_id: d,
-	    	delivery_window: w
-	    });
+//   		a = Divys.insert({
+//   			title: "Delivery Window",
+//   			store_id: store_a[i]._id,
+//   			quota: 0
+//   		});
+// 		w = DeliveryWindows.insert({
+// 			depart_time: 2200,
+// 			arrival_time: 2245,
+// 			divy_id: a
+// 		});
+// 		d = Accounts.createUser({
+// 	      	username: "Driver" + (3 + i),
+// 	      	password: "password"
+// 	    });
+// 	  	Drivers.insert({
+// 	    	user_id: d,
+// 	    	delivery_window: w
+// 	    });
 
-  		a = Divys.insert({
-  			title: "Delivery Window",
-  			store_id: store_a[i]._id,
-  			quota: 0
-  		});
-		w = DeliveryWindows.insert({
-			depart_time: 2300,
-			arrival_time: 2345,
-			divy_id: a
-		});
-		d = Accounts.createUser({
-	      	username: "Driver" + (4 + i),
-	      	password: "password"
-	    });
-	 	Drivers.insert({
-	    	user_id: d,
-	    	delivery_window: w
-	    });
+//   		a = Divys.insert({
+//   			title: "Delivery Window",
+//   			store_id: store_a[i]._id,
+//   			quota: 0
+//   		});
+// 		w = DeliveryWindows.insert({
+// 			depart_time: 2300,
+// 			arrival_time: 2345,
+// 			divy_id: a
+// 		});
+// 		d = Accounts.createUser({
+// 	      	username: "Driver" + (4 + i),
+// 	      	password: "password"
+// 	    });
+// 	 	Drivers.insert({
+// 	    	user_id: d,
+// 	    	delivery_window: w
+// 	    });
 
-  		a = Divys.insert({
-  			title: "Delivery Window",
-  			store_id: store_a[i]._id,
-  			quota: 0
-  		});
-		w = DeliveryWindows.insert({
-			depart_time: 0000,
-			arrival_time: 0045,
-			divy_id: a
-		});
-		d = Accounts.createUser({
-	      	username: "Driver4",
-	      	password: "password"
-	    });
-	  	Drivers.insert({
-	    	user_id: d,
-	    	delivery_window: w
-	    });
-	}
-}
+//   		a = Divys.insert({
+//   			title: "Delivery Window",
+//   			store_id: store_a[i]._id,
+//   			quota: 0
+//   		});
+// 		w = DeliveryWindows.insert({
+// 			depart_time: 0000,
+// 			arrival_time: 0045,
+// 			divy_id: a
+// 		});
+// 		d = Accounts.createUser({
+// 	      	username: "Driver4",
+// 	      	password: "password"
+// 	    });
+// 	  	Drivers.insert({
+// 	    	user_id: d,
+// 	    	delivery_window: w
+// 	    });
+// 	}
+// }

@@ -3,20 +3,6 @@ Template.divyPage.helpers({
 		return Comments.find({divyId: this._id});
 	},
 
-	'f_departTime': function() {
-		time = DeliveryWindows.findOne({divy_id: this._id}).depart_time;
-		hour = ~~(time/100);
-		minutes = time % 100;
-		return hour + ":" + minutes;
-	}, 
-
-	'f_arrivalTime': function() {
-		time = DeliveryWindows.findOne({divy_id: this._id}).arrival_time;
-		hour = ~~(time/100);
-		minutes = time % 100;
-		return hour + ":" + minutes;
-	},
-
 	total: function() {
 	return Divys.findOne({_id: this._id}).total;
 	},
@@ -28,9 +14,5 @@ Template.divyPage.helpers({
 	title: function() {
 	return Divys.findOne({_id: this._id}).title;
 	},
-
-	f_deliveryWindow: function() {
-	return DeliveryWindows.finOne({divy_id: this._id}) != undefined;
-	}
 
 });

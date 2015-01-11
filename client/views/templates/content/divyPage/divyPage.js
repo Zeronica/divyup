@@ -29,10 +29,6 @@ Template.divyPage.helpers({
 	return Divys.findOne({_id: this._id}).title;
 	},
 
-	f_hasTitle: function() {
-	return Divys.find({store_id: this._id}).title.count() > 0;
-	},
-
 	f_deliveryWindow: function() {
 	return DeliveryWindows.finOne({divy_id: this._id}) == true;
 	}

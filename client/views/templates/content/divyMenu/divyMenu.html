@@ -6,7 +6,7 @@
 	<div class="list-group">
   		{{#if f_hasKickstarter}}
 			{{#with f_kickstarter}}
-				{{> existingDivy}}
+				{{> currentKickstarter}}
 			{{/with}}
 		{{else}}
 			{{> kickstartNewDivy}}
@@ -16,9 +16,9 @@
 	</div>
 </template>	
 
-<template name="existingDivy">
+<template name="currentKickstarter">
 	<a href="#" class="list-group-item">
-		<h4 class="list-group-item-heading">Delivery Open</h4>
+		<h4 class="list-group-item-heading">Kickstarting!</h4>
 	    <p class="list-group-item-text">
 	    	<span>${{f_amountNeeded}}</span><br>
 	    	<span>${{f_amountPresent}}</span>

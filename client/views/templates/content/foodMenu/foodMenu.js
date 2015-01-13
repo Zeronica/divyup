@@ -8,13 +8,20 @@ Template.foodMenu.helpers({
 
 Template.foodMenu.events({
 	'click #foodItem': function(){
-		// m = CurrentOrders.findOne({user_id: Meteor.userId()});
-		// if (m) {
-		// 	order_id = m.order_id;
-		// } else {
-		// 	order_id = Meteor.myFunctions.createCurrentOrder(store_id);
-		// }
-		store_id = Menus.findOne(this.menu_id).store_id;
-		r = Meteor.call('setOrderItems', {user_id: userId(), menu_item_id: this._id});
+		r = confirm("Add " + this.name + " to cart?");
+		if (r) {
+			store_id = Menus.findOne(this.menu_id).store_id;
+			c = CurrentOrders.findOne({user_id: Meteor.userId()});
+			r = Meteor.call('setOrderItems', {order_id: c.order_id, menu_item_id: this._id}, function(err) {
+				if (err)
+					throw (err);
+			});
+		}
+	}
+});
+
+Template.orderTotal.helpers({
+	'totalInOrder': function() {
+		return 0.00;
 	}
 })

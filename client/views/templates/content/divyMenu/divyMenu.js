@@ -1,6 +1,11 @@
 Template.divyMenu.helpers({
 	'f_hasDivys': function() {
-		return Divys.findOne({store_id: this._id, locked: false}) != undefined;
+		Meteor.call('getKickstarterDivy', {store_id: this._id}, function(err, result) {
+			if (err)
+				return alert(err.reason);
+			Session.set("r_hasDivys", result);
+		});
+		return Session.get("r_hasDivys", result) === undefined;
 	},
 
 	'f_divy': function() {

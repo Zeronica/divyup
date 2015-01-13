@@ -17,6 +17,8 @@ Template.storeItem.helpers({
 	},
 
 	'f_delivering': function() {
-		return Meteor.clientHelpers.currentlyDelivering(this._id);
+		return Meteor.clientHelpers.currentlyDelivering({
+			delivery_start: this.delivery_start,
+			delivery_end: this.delivery_end});
 	}
 });

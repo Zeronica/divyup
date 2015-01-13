@@ -1,7 +1,6 @@
 Meteor.clientHelpers = {
-	currentlyDelivering: function(store_id) {
+	currentlyDelivering: function(data) {
 		d = new Date(TimeSync.serverTime());
-		store = Stores.findOne(store_id);
-		return d.getHours()*100 >= store.delivery_start && d.getHours()*100 <= store.delivery_end;
+		return d.getHours()*100 >= data.delivery_start && d.getHours()*100 <= data.delivery_end;
 	}
 }

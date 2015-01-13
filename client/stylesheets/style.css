@@ -85,6 +85,10 @@ input[type=email], input[type=password] {
 }*/
 
 /*-----------------------------------------------------------------------------*/
+.list___item {
+  height: 150px;
+}
+
 .listItem {
   width: 100%;
 }

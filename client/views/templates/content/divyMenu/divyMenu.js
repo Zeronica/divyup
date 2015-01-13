@@ -3,10 +3,12 @@ Template.divyMenu.helpers({
 		return Divys.findOne({store_id: this._id, locked: false}) != undefined;
 	},
 
-	'f_divys': function() {
-		return Divys.find({store_id: this._id, locked: false});
+	'f_divy': function() {
+		return Divys.findOne({store_id: this._id, locked: false});
 	},
+});
 
+Template.preorder.helpers({
 	/*temp functions*/
 	/*--------------------------------------------*/
 	'f_beginTime': function() {
@@ -16,7 +18,7 @@ Template.divyMenu.helpers({
 	'f_timeFromNow': function() {
 		return "70 minutes";
 	}
-});
+})
 
 Template.existingDivy.helpers({
 	'f_amountNeeded': function() {
@@ -28,93 +30,43 @@ Template.existingDivy.helpers({
 });
 
 Template.existingDivy.events({
-	'click li': function() {
+	'click a': function() {
 		alert("you have chosen to contribute to an existing divy.");
-		Meteor.call('setCurrentOrder', {divy_id: this._id, user_id: Meteor.userId()});
-		Router.go('foodMenu', {_id: this.store_id});
+		// set current order with the existing divy
+		Meteor.call('setCurrentOrder', {divy_id: this._id, user_id: Meteor.userId()}, function(err, result) {
+			if (err)
+				return alert(err);
+			// get store_id due to callback scope.
+			store_id = Orders.findOne(CurrentOrders.findOne(result).order_id).store_id;
+			Router.go('foodMenu', {_id: store_id});
+		});
 	}
 });
 
 Template.kickstartNewDivy.events({
-	'click li': function() {
+	'click a': function() {
 		alert("you have chosen to start a new divy");
+		// creates a new divy and sets current order to the existing divy
 		Meteor.call('setNewDivy', {user_id: Meteor.userId(), store_id: this._id}, function(error, result) {
 			if (error)
 				return alert(error.reason);
-			console.log(result);
+
+			Meteor.call('setCurrentOrder', {divy_id: result, user_id: Meteor.userId()});
+			Router.go('foodMenu', {_id: this.store_id});	
 		});
-		// Meteor.call('setCurrentOrder', {divy_id: this._id, user_id: Meteor.userId()});
-		// Router.go('foodMenu', {_id: this.store_id});
 	}
 });
 
-
-
-
-
-
-
-
-
-
-
-
-// Template.divyMenu.helpers({
-// 	// kickStart divys
-// 	'f_divys': function() {
-// 		return Divys.find({store_id: this._id, quota: {$gt: 0}});
-// 	},
-
-// 	'f_hasDivys': function() {
-// 		return Divys.findOne({store_id: this._id}) != undefined;
-// 	},
-
-// 	'f_noDivyMessage': function() {
-// 		return "Looks like no one has kickstarted a divy yet. You can start one by touching the button on the right hand corner."
-// 	},
-
-// 	'f_stores': function() {
-// 		return Stores.findOne({_id: this._id});
-// 	},
-
-
-// 	// delivery windows
-// 	'f_deliveryWindows': function() {
-// 		return DeliveryWindows.find();
-// 	},
-
-// 	'f_departTime': function() {
-// 		time = DeliveryWindows.findOne({_id: this._id}).depart_time;
-// 		hour = ~~(time/100);
-// 		minutes = time % 100;
-// 		return hour + ":" + minutes;
-// 	}, 
-
-// 	'f_arrivalTime': function() {
-// 		time = DeliveryWindows.findOne({_id: this._id}).arrival_time;
-// 		hour = ~~(time/100);
-// 		minutes = time % 100;
-// 		return hour + ":" + minutes;
-// 	},
-
-// 	commentsCount: function() {
-//     return Comments.find({divyId: this._id}).count();
-//   }
-// })
-
-// Template.divyMenu.events({
-// 	'click [name=commitDivy]': function(e) {
-// 		e.preventDefault();
-// 		m = CurrentOrders.findOne({user_id: Meteor.userId()});
-// 		console.log(this);
-// 		if (m) {
-// 			Router.go('checkoutMenu', {_id: this.divy_id});
-// 		}
-// 		else if (Orders.find({user_id: Meteor.userId(), store_id: this.store_id}).count() === 0) {
-// 			Router.go('foodMenu', {_id: Divys.findOne(this.divy_id).store_id});
-// 		}
-// 		else {
-// 			Router.go('orderMenu', {_id: this.store_id});
-// 		}
-// 	}
-// })
+Template.preorder.events({
+	'click a': function() {
+		alert("you have chosen to preorder for delivery hours.");
+		// either creates a new deliverydivy or finds an existing one to add to, then gets a divy_id
+		// in return, then sets the currentOrder
+		Meteor.call('setDeliveryDivy', {user_id: Meteor.userId(), store_id: this._id}, function(err, result) {
+			if (err)
+				return alert(err.reason)
+			Meteor.call('setCurrentOrder', {divy_id: result, user_id: Meteor.userId()});
+			console.log(result);	
+		})
+	}
+});

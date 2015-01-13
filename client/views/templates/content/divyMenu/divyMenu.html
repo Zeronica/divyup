@@ -3,72 +3,64 @@
 
 	{{> storeItem}}
 
-	<ul class="list">
-		<li class="list__header">
-	    	Kickstarters
-	  	</li>
-		{{#if f_hasDivys}}
-			{{#each f_divys}}
+	<div class="list-group">
+  		{{#if f_hasDivys}}
+			{{#with f_divy}}
 				{{> existingDivy}}
-			{{/each}}
+			{{/with}}
 		{{else}}
 			{{> kickstartNewDivy}}
 		{{/if}}
-		<li class="list__header">
-	    	Pre orders
-	  	</li>	
-	  	{{> preorder}}
-	</ul>
+
+  		{{> preorder}}
+	</div>
 </template>	
 
 <template name="existingDivy">
-	<li class="list__item list__item--tappable">
-      <div width="80px" class="plan-left col ons-col-inner" style="-webkit-box-flex: 0; flex: 0 0 80px; max-width: 80px;">
-        <div class="plan-date">${{f_amountNeeded}}</div>
-        <div class="plan-duration">${{f_amountPresent}}</div>
-      </div>
-
-      <div class="plan-right col ons-col-inner">
-        <div class="plan-name">Divy Up!</div>
-
-        <div class="plan-info">
-          <div ng-hide="a % 4 == 0">
-            xxx
-          </div>
-
-          <div ng-hide="a % 3 == 0">
-            xxx
-          </div>
-        </div>
-      </div>
-    </li>
+	<a href="#" class="list-group-item">
+		<h4 class="list-group-item-heading">Delivery Open</h4>
+	    <p class="list-group-item-text">
+	    	<span>${{f_amountNeeded}}</span><br>
+	    	<span>${{f_amountPresent}}</span>
+	    </p>
+	</a>
 </template>
 
 <template name="kickstartNewDivy">
-	<li class="list__item list__item--tappable">
-		Kickstart new Divy!
-    </li>
+	<a href="#" class="list-group-item">
+		<h4 class="list-group-item-heading">Kickstart a new Divy!</h4>
+	    <p class="list-group-item-text">
+	    	...
+	    </p>
+	</a>
 </template>
 
 <template name="preorder">
-	<li class="list__item list__item--tappable">
-	  <div width="80px" class="plan-left col ons-col-inner" style="-webkit-box-flex: 0; flex: 0 0 80px; max-width: 80px;">
-	    <div class="plan-date">{{f_beginTime}}</div>
-	    <div class="plan-duration">{{f_timeFromNow}}</div>
-	  </div>
-
-	  <div class="plan-right col ons-col-inner">
-	    <div class="plan-name">Pre Order</div>
-
-	    <div class="plan-info">
-	      <div ng-hide="a % 4 == 0">
-	        xxx
-	      </div>
-
-	      <div ng-hide="a % 3 == 0">
-	        xxx
-	      </div>
-	    </div>
-	  </div>
-	</li>
+	<a href="#" class="list-group-item">
+		<h4 class="list-group-item-heading">Preorder for delivery hours</h4>
+	    <p class="list-group-item-text">
+	    	<span>{{f_beginTime}}</span><br>
+	    	<span>{{f_timeFromNow}}</span>
+	    </p>
+	</a>
 </template>
+
+<!-- 	  
+ -->
+
+<!--  	<ul class="list">
+		<li class="list__item list__itemtappable">
+			{{#if f_hasDivys}}
+				{{#with f_divy}}
+					{{> existingDivy}}
+				{{/with}}
+			{{else}}
+				{{> kickstartNewDivy}}
+			{{/if}}
+		</li>
+		
+		<li class="list__item list__itemtappable">
+	  		{{> preorder}}
+	  	</li>
+	</ul>
+ -->

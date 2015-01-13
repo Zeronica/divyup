@@ -8,17 +8,20 @@ Template.foodMenu.helpers({
 
 Template.foodMenu.events({
 	'click #foodItem': function(){
-		console.log(this.name);
-		console.log(this._id);
-		m = CurrentOrders.findOne({user_id: Meteor.userId()});
-		if (m) {
-			order_id = m.order_id;
-		} else {
-			// get store_id from menu_id
+		r = confirm("Add " + this.name + " to cart?");
+		if (r) {
 			store_id = Menus.findOne(this.menu_id).store_id;
-			order_id = Meteor.myFunctions.createCurrentOrder(store_id);
+			c = CurrentOrders.findOne({user_id: Meteor.userId()});
+			r = Meteor.call('setOrderItems', {order_id: c.order_id, menu_item_id: this._id}, function(err) {
+				if (err)
+					throw (err);
+			});
 		}
-		r = Meteor.myFunctions.createOrderItem(order_id, this._id);
-		//console.log(r);
+	}
+});
+
+Template.orderTotal.helpers({
+	'totalInOrder': function() {
+		return 0.00;
 	}
 })

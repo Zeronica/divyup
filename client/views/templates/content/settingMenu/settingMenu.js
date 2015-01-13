@@ -1,5 +1,6 @@
 Template.settingMenu.events({
 	'click #logout': function() {
-		Meteor.myFunctions.logout();
+		Meteor.logout();
+		Router.go('home');
 	}
 })

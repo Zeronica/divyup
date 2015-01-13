@@ -16,12 +16,9 @@ Template.storeItem.helpers({
 		return Divys.findOne({store_id: this._id}) != undefined;
 	},
 
-	'f_deliveryStatus': function() {
-		return Meteor.clientHelpers.deliveryStatusForStore(this._id);
-	},
-
-	'f_currentTime': function() {
-		d = new Date(TimeSync.serverTime());
-		return d.getHours() + " " + d.getMinutes() + " " + d.getSeconds();
+	'f_delivering': function() {
+		return Meteor.clientHelpers.currentlyDelivering({
+			delivery_start: this.delivery_start,
+			delivery_end: this.delivery_end});
 	}
 });

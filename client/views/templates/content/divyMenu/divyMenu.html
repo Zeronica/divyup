@@ -1,46 +1,66 @@
 <template name="divyMenu">
 	{{>header_stealth back_route="Router.go('storeMenu')" back_name="Store Menu"}}
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" />
-	<div class="card">
-	<div class="card-name">{{storename}}</div>
-          <div class="card-desc">For you fat chumps (description)<br>Delivery window 6:00pm to 11:pm</div>
+
+	{{> storeItem}}
+
+	<div class="list-group">
+  		{{#if f_hasKickstarter}}
+			{{#with f_kickstarter}}
+				{{> currentKickstarter}}
+			{{/with}}
+		{{else}}
+			{{> kickstartNewDivy}}
+		{{/if}}
+
+  		{{> preorder}}
 	</div>
+</template>	
 
-	<div class="rating"><div class="rating-num">
-	            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
-	            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
-	            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
-	            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
-	            <ons-icon icon="fa-star-half" fixed-width="false"></ons-icon>
-	            Delivering now!
-	</div></div>
-
-	<ul class="list">
-	  <li class="list__header">
-	    Divys
-	  </li>
-	  {{#if f_hasDivys}}
-		{{#each f_divys}}
-			<li class="list__item">
-			    {{title}}
-			</li>
-		{{/each}}
-	  {{else}}
-	  	{{f_noDivyMessage}}
-	  {{/if}}
-
-	  <li class="list__header">
-	    Delivery Windows
-	  </li>
-	  {{#each f_deliveryWindows}}
-		  <li class="list__item " name="commitDivy">
-		    <div style="display:inline-block">
-		    <p>Depart time: {{f_departTime}}</p>
-		    <p>Arrival time: {{f_arrivalTime}}</p>
-			</div>
-		    <!-- <i class="tab-bar__icon ion-chevron-right" style="padding-left:1075px; color:#342e30; display:inline-block;"></i> -->
-		  </li>
-		{{/each}}
-	</ul>
+<template name="currentKickstarter">
+	<a href="#" class="list-group-item">
+		<h4 class="list-group-item-heading">Kickstarting!</h4>
+	    <p class="list-group-item-text">
+	    	<span>${{f_amountNeeded}}</span><br>
+	    	<span>${{f_amountPresent}}</span>
+	    </p>
+	</a>
 </template>
+
+<template name="kickstartNewDivy">
+	<a href="#" class="list-group-item">
+		<h4 class="list-group-item-heading">Kickstart a new Divy!</h4>
+	    <p class="list-group-item-text">
+	    	...
+	    </p>
+	</a>
+</template>
+
+<template name="preorder">
+	<a href="#" class="list-group-item">
+		<h4 class="list-group-item-heading">Preorder for delivery hours</h4>
+	    <p class="list-group-item-text">
+	    	<span>{{f_beginTime}}</span><br>
+	    	<span>{{f_timeFromNow}}</span>
+	    </p>
+	</a>
+</template>
+
+<!-- 	  
+ -->
+
+<!--  	<ul class="list">
+		<li class="list__item list__itemtappable">
+			{{#if f_hasDivys}}
+				{{#with f_divy}}
+					{{> existingDivy}}
+				{{/with}}
+			{{else}}
+				{{> kickstartNewDivy}}
+			{{/if}}
+		</li>
+		
+		<li class="list__item list__itemtappable">
+	  		{{> preorder}}
+	  	</li>
+	</ul>
+ -->

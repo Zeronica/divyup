@@ -21,7 +21,14 @@ Template.foodMenu.events({
 });
 
 Template.orderTotal.helpers({
-	'totalInOrder': function() {
-		return 0.00;
+	'f_totalInOrder': function() {
+		c = CurrentOrders.findOne({user_id: Meteor.userId()});
+		return Meteor.myFunctions.totalInOrder(c.order_id);
+	}
+});
+
+Template.orderTotal.events({
+	'click #checkout': function() {
+		Router.go('checkout');
 	}
 })

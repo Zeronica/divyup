@@ -32,9 +32,10 @@ Template.preorder.helpers({
 
 Template.currentKickstarter.helpers({
 	'f_amountNeeded': function() {
-		return 200;
+		return Stores.findOne(this.store_id).quota;
 	},
 	'f_amountPresent': function() {
+		// return Meteor.myFunctions.totalInDivy(this._id);
 		return 0;
 	}
 });

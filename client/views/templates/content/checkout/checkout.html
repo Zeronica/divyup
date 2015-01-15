@@ -1,0 +1,20 @@
+<template name="checkout">
+	<ul class="list">
+		{{#each f_menuItemInCart}}
+		  <li class="list__item">
+		    <div class="list__right-label">${{price}}</div>
+		    {{name}}
+		  </li>
+	  	{{/each}}
+		
+		<li class="list__header">
+		  <div class="list__right-label">total</div>
+		</li>
+
+		<li class="list__item">
+		  <div class="list__right-label">${{f_total}}</div>
+		</li>
+	</ul>
+
+	<button class="button--large--cta" id="checkout">Checkout</button>
+</template>

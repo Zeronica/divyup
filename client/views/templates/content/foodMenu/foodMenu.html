@@ -12,12 +12,19 @@
 </template>
 
 <template name="orderTotal">
-	<div class="tab-bar ">
-	  <label class="tab-bar__item tab-bar--top-border__item">
-	    <input type="radio" name="top-tab-bar-b">
-	    <button class="tab-bar__button tab-bar--top-border__button">
-	      Total in cart: ${{totalInOrder}}
-	    </button>
-	  </label>
+	<div class="tab-bar">
+	  
+		<label class="tab-bar__item">
+			<button class="tab-bar__button">
+		  		Total in cart: ${{f_totalInOrder}}
+			</button>
+		</label>
+
+		<label class="tab-bar__item">
+		    <button class="tab-bar__button">
+		      <div id="checkout">Checkout</div>
+		    </button>
+		</label>
+	
 	</div>
 </template>

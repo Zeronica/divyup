@@ -35,8 +35,7 @@ Template.currentKickstarter.helpers({
 		return Stores.findOne(this.store_id).quota;
 	},
 	'f_amountPresent': function() {
-		// return Meteor.myFunctions.totalInDivy(this._id);
-		return 0;
+		return Meteor.myFunctions.totalInDivy(this._id);
 	}
 });
 /*Event handler*/
@@ -88,6 +87,6 @@ Template.preorder.events({
 					return alert(error.reason);
 				Router.go('foodMenu', {_id: result});
 			});		
-		})
+		});
 	}
 });

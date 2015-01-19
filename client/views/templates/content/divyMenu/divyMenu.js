@@ -22,11 +22,16 @@ Template.preorder.helpers({
 	/*temp functions*/
 	/*--------------------------------------------*/
 	'f_beginTime': function() {
-		return "5:00 PM";
+		return Meteor.clientHelpers.displayTimeFromMinutes(this.delivery_start);
 	},
 
-	'f_timeFromNow': function() {
-		return "70 minutes";
+	'f_totalPlacedAlready': function() {
+		// find the first delivery divy, or return 0 if it exists. 
+		d = DeliveryDivys.find({store_id: this._id}, {sort: {deliver_time: 1}}, {limit: 1});
+		if (d.count() === 0)
+			return 0;
+		d = d.fetch()[0];
+		return Meteor.myFunctions.totalInDivy(d.divy_id);
 	}
 })
 
@@ -41,52 +46,38 @@ Template.currentKickstarter.helpers({
 /*Event handler*/
 /*-----------------------------------------------------------------------------------------------*/
 
-// add to an existing kickstarterDivy/divy, set currentOrder to that divy_id
+// add to a current kickstarter
 Template.currentKickstarter.events({
 	'click a': function() {
 		alert("you have chosen to contribute to an existing divy.");
-
-		// set current order with the existing divy
-		Meteor.call('setCurrentOrder', {divy_id: this._id, user_id: Meteor.userId()}, function(err, result) {
-			if (err)
-				return alert(err);
-
+		Meteor.call('orderCurrentKickstarter', {divy_id: this._id}, function(error, result) {
+			if (error)
+				return alert(error.reason);
 			Router.go('foodMenu', {_id: result});
 		});
 	}
 });
 
-// create a new kickstarterDivy/divy, set currentOrder to that divy_id
+// create a new kickstarter
 Template.kickstartNewDivy.events({
 	'click a': function() {
 		alert("you have chosen to start a new divy");
-
-		// creates a new divy and sets current order to the existing divy
-		Meteor.call('setKickstarterDivy', {user_id: Meteor.userId(), store_id: this._id}, function(error, result) {
+		Meteor.call('orderNewKickstarter', {store_id: this._id}, function(error, result) {
 			if (error)
 				return alert(error.reason);
-			Meteor.call('setCurrentOrder', {divy_id: result, user_id: Meteor.userId()}, function(err, result) {
-				if (err)
-					return alert(error.reason);
-				Router.go('foodMenu', {_id: result});
-			});	
+			Router.go('foodMenu', {_id: result});
 		});
 	}
 });
 
+// preorder for a delivery window.
 Template.preorder.events({
 	'click a': function() {
 		alert("you have chosen to preorder for delivery hours.");
-		// either creates a new deliverydivy or finds an existing one to add to, then gets a divy_id
-		// in return, then sets the currentOrder
-		Meteor.call('setDeliveryDivy', {user_id: Meteor.userId(), store_id: this._id}, function(err, result) {
-			if (err)
-				return alert(err.reason)
-			Meteor.call('setCurrentOrder', {divy_id: result, user_id: Meteor.userId()}, function(err, result) {
-				if (err)
-					return alert(error.reason);
-				Router.go('foodMenu', {_id: result});
-			});		
+		Meteor.call('orderDeliveryWindow', {store_id: this._id}, function(error, result) {
+			if (error)
+				return alert(error.reason);
+			Router.go('foodMenu', {_id: result});
 		});
 	}
 });

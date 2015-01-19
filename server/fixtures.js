@@ -9,7 +9,7 @@ if (Meteor.users.find().count() === 0) {
 if (Constants.find().count() === 0) {
   Constants.insert({
   		name: "max_wait_time",
-  		value: 20
+  		value: 15
    });
 }
 
@@ -18,29 +18,29 @@ var stores = [
 	{
 		storename: 'In-n-Out',
 		estimated_time: 60,
-		delivery_start: 1600,
-		delivery_end: 2200,
+		delivery_start: 960,
+		delivery_end: 1320,
 		quota: 120
 	},
 	{
 		storename: 'Wendys',
 		estimated_time: 60,
-		delivery_start: 1600,
-		delivery_end: 2200,
+		delivery_start: 960,
+		delivery_end: 1320,
 		quota: 100
 	},
 	{
 		storename: 'Jack-in-the-box',
 		estimated_time: 60,
-		delivery_start: 1600,
-		delivery_end: 2200,
+		delivery_start: 960,
+		delivery_end: 1320,
 		quota: 100
 	},
 	{
 		storename: 'Mcdonalds',
 		estimated_time: 60,
-		delivery_start: 1600,
-		delivery_end: 2200,
+		delivery_start: 960,
+		delivery_end: 1320,
 		quota: 100	
 	}
 ];

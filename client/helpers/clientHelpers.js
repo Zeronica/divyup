@@ -1,7 +1,14 @@
 Meteor.clientHelpers = {
-	currentlyDelivering: function(data) {
-		d = new Date(TimeSync.serverTime());
-		return d.getHours()*100 >= data.delivery_start && d.getHours()*100 <= data.delivery_end;
+
+	currentlyDelivering: function(store_id) {
+		store = Stores.findOne(store_id);
+		currentTime = TimeSync.serverTime();
+
+		return Meteor.myFunctions.withinDeliveryWindow(
+			Meteor.myFunctions.utcToMinutes(currentTime),
+			store.delivery_start,
+			store.delivery_end
+		);
 	},
 
 	displayTimeFromMinutes: function(minutes) {

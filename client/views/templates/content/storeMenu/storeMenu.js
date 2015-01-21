@@ -7,7 +7,16 @@ Template.storeMenu.helpers({
 Template.storeMenu.events({
 	'click [name=storeItem]': function(e) {
 		e.preventDefault();
-		Router.go('divyMenu', {_id: this._id});
+		if (Meteor.clientHelpers.currentlyDelivering(this._id)) {
+			Meteor.call('orderDeliveryWindow', {store_id: this._id}, function(err, result) {
+			  if (err)
+			    return alert(err.reason);
+			  Router.go('foodMenu', {_id: result});
+			});
+		}
+		else {
+			Router.go('divyMenu', {_id: this._id});
+		}
 	}
 });
 
@@ -17,8 +26,6 @@ Template.storeItem.helpers({
 	},
 
 	'f_delivering': function() {
-		return Meteor.clientHelpers.currentlyDelivering({
-			delivery_start: this.delivery_start,
-			delivery_end: this.delivery_end});
+		return Meteor.clientHelpers.currentlyDelivering(this._id);
 	}
 });

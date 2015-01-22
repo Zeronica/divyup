@@ -1,0 +1,55 @@
+Divys
+	store_id: 
+	archived: 
+
+DivyOrders:
+	order_id:
+	archived: 
+
+DeliveryDivys
+	divy_id:
+	deliver_time: #utc date. 
+	locked: #user flow always checks this to ensure more users can add to it.
+
+KickstarterDivys
+	divy_id:
+	deliver_time: #utc date
+	locked: #same as deliverydivys
+/*-----------------------------------------------------------------------------------------------------*/
+User adds to a divy or creates a new divy through either DeliveryDivys or KickstarterDivys
+
+Interval checks DeliveryDivys(DD) and KickstarterDivys(KD) on a 5 second interval
+	if reach quota (compute through function), then proceed to next step(PTNS)
+	if time limit runs out (deliver_time + max_wait_time for DD, deliver_time + 2*max_wait_time for KD), 	then DD PTNS, which KD is rejected (how do we handle rejections?)
+
+	if any of these conditions are met, both KD and DD will have locked be set to true
+/*-----------------------------------------------------------------------------------------------------*/
+
+
+Drivers:
+	user_id:
+	online: 
+
+ProcessingDivys:
+	driver_id:
+	divy_id:
+	status: 1, 2, 3
+
+1 -> pending
+2 -> accepted 
+3 -> delivering
+
+/*-----------------------------------------------------------------------------------------------------*/
+The driver's UI reactivly updates the PendingDivys collection. Showing whenever one exists with driver id attached to it.
+
+If accepted. PD.accepted -> true; D.online -> false;
+
+Divy_id displays all the divy_orders
+When a divy_order is delivered, it is then archived.
+When all of a divyorders are delivered, or due to complications no longer seeking to further deliver, it is also archived.
+/*----------------------------------------------------------------------------------------------------*/ 
+
+
+
+
+

@@ -18,7 +18,7 @@ var stores = [
 	{
 		storename: 'In-n-Out',
 		estimated_time: 60,
-		delivery_start: 0,
+		delivery_start: 1310,
 		delivery_end: 1320,
 		quota: 120
 	},

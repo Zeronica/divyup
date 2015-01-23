@@ -1,3 +1,14 @@
+Stores
+
+Constants
+	name: max_wait_time
+	value: 15
+
+/*-----------------------------------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------------------------------*/
+
+
 Divys
 	store_id: 
 	archived: 
@@ -9,11 +20,13 @@ DivyOrders:
 DeliveryDivys
 	divy_id:
 	deliver_time: #utc date. 
+	store_id: #ease of use w/ mongodb
 	locked: #user flow always checks this to ensure more users can add to it.
 
 KickstarterDivys
 	divy_id:
 	deliver_time: #utc date
+	store_id:
 	locked: #same as deliverydivys
 /*-----------------------------------------------------------------------------------------------------*/
 User adds to a divy or creates a new divy through either DeliveryDivys or KickstarterDivys

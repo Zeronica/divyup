@@ -1,11 +1,5 @@
 var getKickstarterDivy = function(store_id) {
-	d = Divys.find({store_id: store_id}).fetch();
-	for (i=0; i<d.length; i++) {
-		k = KickstarterDivys.findOne({divy_id: d[i]._id});
-		if (k)
-			return d[i] //return the divy
-	}
-	return undefined;
+	return KickstarterDivys.findOne({store_id: store_id, locked: false});
 };
 
 Template.divyMenu.helpers({

@@ -1,10 +1,6 @@
 Meteor.startup(function() {
 	Meteor.setInterval(function() {
-		Meteor.call("checkDivyStatus");
+		Meteor.call("checkStatus");
 	}
 	, 5000);
 });
-
-var test = function() {
-	console.log("in test");
-}

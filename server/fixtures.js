@@ -4,6 +4,11 @@ if (Meteor.users.find().count() === 0) {
       username: "Tony",
       password: "password"
     });
+
+  var driver_user_id = Accounts.createUser({
+  	username: "Driver",
+  	password: "password"
+  });
 }
 
 if (Constants.find().count() === 0) {
@@ -11,6 +16,13 @@ if (Constants.find().count() === 0) {
   		name: "max_wait_time",
   		value: 15
    });
+}
+
+if (Drivers.find().count() === 0) {
+	Drivers.insert({
+		user_id: driver_user_id,
+		online: true
+	});
 }
 
 //Stores
@@ -85,5 +97,5 @@ if (MenuItems.find().count() === 0) {
 	];
 	for (i=0; i<menuItems.length; i++) {
 		MenuItems.insert(menuItems[i]);
-	} 
+	}
 };

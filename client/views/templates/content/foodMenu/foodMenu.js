@@ -17,6 +17,21 @@ Template.foodMenu.events({
 					throw (err);
 			});
 		}
+	},
+
+	'click #testButton': function() {
+		foodItem = MenuItems.findOne();
+		r = confirm("Add 5 x " + foodItem.name + " to cart?");
+		if (r) {
+			store_id = Menus.findOne(foodItem.menu_id).store_id;
+			c = CurrentOrders.findOne({user_id: Meteor.userId()});
+			for (i in [1, 2, 3, 4, 5]) {
+				r = Meteor.call('setOrderItems', {order_id: c.order_id, menu_item_id: foodItem._id}, function(err) {
+					if (err)
+						throw (err);
+				});
+			}
+		} 
 	}
 });
 

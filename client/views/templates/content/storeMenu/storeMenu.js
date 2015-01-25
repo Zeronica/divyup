@@ -22,7 +22,7 @@ Template.storeMenu.events({
 
 Template.storeItem.helpers({
 	'f_hasDivy': function() {
-		return Divys.findOne({store_id: this._id}) != undefined;
+		return KickstarterDivys.findOne({store_id: this._id}) != undefined;
 	},
 
 	'f_delivering': function() {

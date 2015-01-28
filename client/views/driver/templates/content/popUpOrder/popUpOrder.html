@@ -1,0 +1,30 @@
+<template name="popUpOrder">
+	<!-- {{> header title="Incoming Order !"}} -->
+	<div class="navigation-bar">
+	  <div class="navigation-bar__left">
+		    <span id="cancel" class="toolbar-button--quiet navigation-bar__line-height">
+		      Cancel		    </span>
+	  </div>
+
+	  <div class="navigation-bar__center">
+	    Incomig Order !
+	  </div>
+
+	  <div class="navigation-bar__right">
+	  	{{#if right_action}}
+	    	<span class="toolbar-button--quiet navigation-bar__line-height">Label</span>
+	    {{/if}}
+	  </div>
+	</div>
+
+	
+	{{countdown}}
+	
+	<ul class="list">
+	<div class="list__item">
+		<p>Store: {{f_store}}</p>
+	</div>
+	</ul>
+	<button type="submit" class="button button--large" id="accept" style="position:relative; height:150px; bottom:-390px; font-size: 30px">ACCEPT</button>
+	
+</template>

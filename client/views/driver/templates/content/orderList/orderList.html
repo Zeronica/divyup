@@ -1,0 +1,17 @@
+<template name="orderList">
+	{{>header title="Orders"}}
+	
+	<link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css"/>
+	<ul class="list">
+	{{#each f_order}}
+	<div class="list__item">
+		<p>{{username}} {{confirmationnumber}}</p>
+	</div>
+	{{/each}}
+	</ul>
+	
+	<button type="submit" class="button button--large" id="proceed">Proceed to next drop-off</button>
+	
+	{{> footer}}
+	
+</template>

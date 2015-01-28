@@ -70,7 +70,6 @@ if (Menus.find().count() === 0) {
 	});
 }
 
-
 //MenuItems
 if (MenuItems.find().count() === 0) {
 	var menuItems = [
@@ -99,19 +98,3 @@ if (MenuItems.find().count() === 0) {
 		MenuItems.insert(menuItems[i]);
 	}
 };
-
-// // Divys
-
-// if (Divys.find().count() === 0) {
-// 	var divy_id = Divys.insert({
-// 		store_id = Stores.findOne(),
-// 		archived: false
-// 	});
-// }
-
-// // Orders
-// if (Orders.find().count() === 0) {
-// 	var divy_id = Divys.insert({
-		
-// 	})
-// }

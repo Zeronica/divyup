@@ -1,0 +1,3 @@
+ArchivedDivys = new Meteor.Collection("archivedDivys");
+/*
+*/

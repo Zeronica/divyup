@@ -17,3 +17,9 @@ Template.divyItem.helpers({
 		return Meteor.myFunctions.totalInDivy(this.divy_id);
 	}
 });
+
+Template.newDivyItem.events({
+	'click #newDivyItem': function() {
+		Router.go("newDivy");
+	}
+})

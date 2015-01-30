@@ -1,0 +1,26 @@
+<template name="newDivy">
+	{{> header title="Choose a Restaurant"}}
+
+	<ul class="list">
+	{{#each f_pickupStores}}
+		{{> storeItem}}
+	{{/each}}
+	</ul>
+</template>
+
+<template name="storeItem">
+	<li class="list__item list__item--tappable" name="storeItem">
+		<div class="card">
+			<div class="card-name">{{f_storename}}</div>
+	        <div class="card-desc">
+	        	placeholder
+	        </div>
+		</div>
+
+		<div class="rating">
+			<div class="rating-num">
+		    	placeHolder
+			</div>
+		</div>
+	</li>
+</template>

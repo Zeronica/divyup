@@ -17,7 +17,10 @@ Template.createAccount.events({
 	    if (passwordVar === passwordVarConfirm) {
 		    Accounts.createUser({
 		        username: usernameVar,
-		        password: passwordVar
+		        password: passwordVar,
+		        profile: {
+		        	pickup_id: null
+		        }
 		    }, function(err, username, password) {
 		          if (err) {
 		            alert(err);

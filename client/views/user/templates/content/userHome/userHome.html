@@ -1,0 +1,24 @@
+<template name="userHome">
+	{{> header title="Choose a Restaurant"}}
+	<ul class="list">
+	{{#each f_divys}}
+		{{> divyItem}}
+	{{/each}}
+	</ul>
+	{{> footer}}
+</template>
+
+<template name="divyItem">
+	<li class="list__item list__item--tappable" name="storeItem">
+		<div class="card">
+			<div class="card-name">{{f_storename}}</div>
+	        <div class="card-desc">{{f_quotaStatus}}</div>
+		</div>
+
+		<div class="rating">
+			<div class="rating-num">
+		    	placeHolder
+			</div>
+		</div>
+	</li>
+</template>

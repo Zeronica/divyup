@@ -1,0 +1,18 @@
+<template name="pickupMenu">
+	{{> header title="Choose a pickup location"}}
+
+	<ul class="list">
+		{{#each f_pickupLocations}}
+			{{> pickupItem}}
+		{{/each}}
+	</ul>
+</template>
+
+<template name="pickupItem">
+  <li class="list__item list__item--tappable" id="pickupItem">
+    <span class="list__item__line-height">
+    	{{name}}
+    	<span style="float: right; font-family: courier; font-weight: normal">{{description}}</span>
+    </span>
+  </li>
+</template>

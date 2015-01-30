@@ -2,12 +2,18 @@
 if (Meteor.users.find().count() === 0) {
   var user_id = Accounts.createUser({
       username: "Tony",
-      password: "password"
+      password: "password",
+      profile: {
+      	pickup_id: undefined
+      }
     });
 
   var driver_user_id = Accounts.createUser({
   	username: "Driver",
-  	password: "password"
+  	password: "password",
+      profile: {
+      	pickup_id: undefined
+      }
   });
 }
 
@@ -98,3 +104,27 @@ if (MenuItems.find().count() === 0) {
 		MenuItems.insert(menuItems[i]);
 	}
 };
+
+// pickup
+if (Pickups.find().count() === 0) {
+	Pickups.insert({
+		name: "Unit 1",
+		description: "inside Unit 1"
+	});
+	Pickups.insert({
+		name: "Unit 2",
+		description: "inside Unit 2"
+	});
+	Pickups.insert({
+		name: "Unit 3",
+		description: "inside Unit 3"
+	});
+	Pickups.insert({
+		name: "Foothill",
+		description: "inside Foothill"
+	});
+	Pickups.insert({
+		name: "Clark Kerr",
+		description: "inside Clark Kerr"
+	});
+}

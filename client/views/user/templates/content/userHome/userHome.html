@@ -1,18 +1,36 @@
 <template name="userHome">
 	{{> header title="Choose a Restaurant"}}
 	<ul class="list">
-	{{#each f_divys}}
-		{{> divyItem}}
+	{{#each f_pickupDivys}}
+		{{> divyItem }}
 	{{/each}}
 	</ul>
+
+	{{> newDivyItem}}
+
 	{{> footer}}
 </template>
 
 <template name="divyItem">
-	<li class="list__item list__item--tappable" name="storeItem">
+	<li class="list__item list__item--tappable" name="divyItem">
 		<div class="card">
 			<div class="card-name">{{f_storename}}</div>
-	        <div class="card-desc">{{f_quotaStatus}}</div>
+	        <div class="card-desc">{{f_totalInDivy}} / {{quota}}</div>
+		</div>
+
+		<div class="rating">
+			<div class="rating-num">
+		    	placeHolder
+			</div>
+		</div>
+	</li>
+</template>
+
+<template name="newDivyItem">
+	<li class="list__item list__item--tappable" name="divyItem">
+		<div class="card">
+			<div class="card-name">Create a new Divy!</div>
+	        <div class="card-desc"> hungry for something else? </div>
 		</div>
 
 		<div class="rating">

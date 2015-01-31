@@ -100,18 +100,29 @@ if (MenuItems.find().count() === 0) {
 	}
 };
 
-// // Divys
+// Divys
+s = Stores.findOne()
 
-// if (Divys.find().count() === 0) {
-// 	var divy_id = Divys.insert({
-// 		store_id = Stores.findOne(),
-// 		archived: false
-// 	});
-// }
+if (Divys.find().count() === 0) {
+	var divy_id = Divys.insert({
+		store_id : s._id,
+		archived: false
+	});
+}
+
+// ProcessingDivys
+if (ProcessingDivys.find().count() === 0) {
+	ProcessingDivys.insert({
+		divy_id: divy_id,
+		driver_id: Drivers.findOne()._id,
+		status: 1
+	});
+}
 
 // // Orders
 // if (Orders.find().count() === 0) {
-// 	var divy_id = Divys.insert({
-		
-// 	})
+// 	var order_id = Orders.insert({
+// 		user_id : user_id,
+// 		store_id : s._id
+// 	});
 // }

@@ -1,4 +1,4 @@
-Template.login.events({
+Template.driverLogin.events({
     'submit form': function(event, template){
         event.preventDefault();
         var usernameVar = template.find('#login-username').value;
@@ -7,7 +7,7 @@ Template.login.events({
     }
 });
 
-Template.createAccount.events({
+Template.driverCreateAccount.events({
 	'submit form': function(event, template){
 	    event.preventDefault();
 	    var usernameVar = template.find('#register-username').value;

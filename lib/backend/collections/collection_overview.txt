@@ -44,11 +44,12 @@ Drivers:
 ProcessingDivys:
 	driver_id:
 	divy_id:
-	status: 1, 2, 3
+	status: 1, 2, 3, 4
 
-1 -> pending
-2 -> accepted 
-3 -> delivering
+1 -> not picked up
+2 -> accepted
+3 -> picked up
+4 -> delivering
 
 /*-----------------------------------------------------------------------------------------------------*/
 The driver's UI reactivly updates the PendingDivys collection. Showing whenever one exists with driver id attached to it.

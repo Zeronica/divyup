@@ -139,3 +139,23 @@ if (PickupStores.find().count() === 0) {
 		delivery_type: 2
 	});
 }
+
+// Divys
+s = Stores.findOne()
+
+if (Divys.find().count() === 0) {
+	var divy_id = Divys.insert({
+		store_id : s._id,
+		archived: false
+	});
+}
+
+// ProcessingDivys
+if (ProcessingDivys.find().count() === 0) {
+	ProcessingDivys.insert({
+		divy_id: divy_id,
+		driver_id: Drivers.findOne()._id,
+		status: 1
+	});
+}
+

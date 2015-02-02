@@ -11,8 +11,7 @@ Template.foodMenu.events({
 		r = confirm("Add " + this.name + " to cart?");
 		if (r) {
 			store_id = Menus.findOne(this.menu_id).store_id;
-			c = CurrentOrders.findOne({user_id: Meteor.userId()});
-			r = Meteor.call('setOrderItems', {order_id: c.order_id, menu_item_id: this._id}, function(err) {
+			r = Meteor.call('addItemsToCart', {menu_item_id: this._id}, function(err) {
 				if (err)
 					throw (err);
 			});
@@ -24,7 +23,7 @@ Template.foodMenu.events({
 		store_id = Menus.findOne(foodItem.menu_id).store_id;
 		c = CurrentOrders.findOne({user_id: Meteor.userId()});
 		for (i in [1, 2, 3, 4, 5]) {
-			r = Meteor.call('setOrderItems', {order_id: c.order_id, menu_item_id: foodItem._id}, function(err) {
+			r = Meteor.call('addItemsToCart', {menu_item_id: foodItem._id}, function(err) {
 				if (err)
 					throw (err);
 			});

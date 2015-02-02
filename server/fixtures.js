@@ -159,3 +159,10 @@ if (ProcessingDivys.find().count() === 0) {
 	});
 }
 
+// // PickupAreas
+// if (PickupAreas.find().count() === 0) {
+// 	PickupAreas.insert({
+		
+// 	})
+// }
+

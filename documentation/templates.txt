@@ -1,0 +1,47 @@
+// user
+pickupMenu
+displays Pickups collection. 
+Call: "setPickUpForUser";
+
+userHome
+displays PickupDivys
+Call: "orderToExistingDivy";
+
+newDivy
+displays PickupStores
+Call: "orderToNewDivy";
+
+foodMenu
+displays MenuItems
+Call: "addItemsToCart";
+
+checkout
+displays MenuItems in CurrentOrder
+Call: "checkoutCurrentOrder";
+
+//driver
+popupOrder
+displays whenever a processingDivy becomes available
+Call: "acceptProcessingOrder";
+or
+"rejectProcessingOrder";
+
+<template name> // the one where the driver is heading to store
+Call: "orderPickedUp";
+
+<template name> // where driver presses arriving
+Call: "arrivingAtPickup";
+
+// when driver delivers an order
+Call: "deliverOrder";
+
+// when driver delivers a second round
+Call: "updateRoundStatus";
+
+// when driver completes the delivery
+Call: "completeDelivery";
+
+// when driver 
+
+
+

@@ -38,28 +38,32 @@ var stores = [
 		estimated_time: 3600000,
 		delivery_start: 64800000,
 		delivery_end: 90000000,
-		quota: 120
+		quota: 120,
+		address: "8300+Oakport+Street,Oakland,CA"
 	},
 	{
 		storename: 'Wendys',
 		estimated_time: 3600000,
 		delivery_start: 64800000,
 		delivery_end: 90000000,
-		quota: 100
+		quota: 100,
+		address: "5211+Broadway,Oakland,CA"
 	},
 	{
 		storename: 'Jack-in-the-box',
 		estimated_time: 3600000,
 		delivery_start: 64800000,
 		delivery_end: 90000000,
-		quota: 100
+		quota: 100,
+		address: "4425+Telegraph+Avenue,Oakland,CA"
 	},
 	{
 		storename: 'Mcdonalds',
 		estimated_time: 3600000,
 		delivery_start: 64800000,
 		delivery_end: 90000000,
-		quota: 100	
+		quota: 100,
+		address: "4514+Telegraph+Avenue,Oakland,CA"
 	}
 ];
 if (Stores.find().count() === 0) {

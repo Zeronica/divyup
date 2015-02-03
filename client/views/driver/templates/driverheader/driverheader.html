@@ -1,0 +1,37 @@
+<template name="driverheader">
+	<div class="navigation-bar">
+	  <div class="navigation-bar__left">
+	  	{{#if back_route}}
+		    <span id="back" class="toolbar-button--quiet navigation-bar__line-height">
+		      Back to {{back_name}}
+		    </span>
+	    {{/if}}
+	  </div>
+
+	  <div class="navigation-bar__center">
+	    {{title}}
+	  </div>
+
+	  <div class="navigation-bar__right">
+	  	{{#if right_action}}
+	    	<span class="toolbar-button--quiet navigation-bar__line-height">Label</span>
+	    {{/if}}
+	  </div>
+	</div>
+</template>
+
+<template name="driverheader_stealth">
+	<link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" />
+	<div class="navigation-bar navigation-bar--transparent">
+	  <div class="navigation-bar__left">
+	  	{{#if back_route}}
+		    <span id="back" class="toolbar-button--quiet navigation-bar__line-height">
+		      Back to {{back_name}}
+		    </span>
+	    {{/if}}
+	  </div>
+	  
+	  <div class="navigation-bar__center">
+	  </div>
+	</div>
+</template>

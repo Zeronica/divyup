@@ -8,11 +8,11 @@ Template.pickupMenu.events({
 	'click #pickupItem': function() {
 		r = confirm("select " + this.name + " as your dropoff location?");
 		if (r) {
-			Meteor.call("setPickupLocation", {pickup_id: this._id}, function(err){
+			Meteor.call("setPickupForUser", {pickup_id: this._id}, function(err){
 				if (err)
 					throw err.reason;
 				Router.go("userHome");
 			});
 		}
-	}
+	},
 })

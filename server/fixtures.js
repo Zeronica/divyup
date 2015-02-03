@@ -109,23 +109,33 @@ if (MenuItems.find().count() === 0) {
 if (Pickups.find().count() === 0) {
 	Pickups.insert({
 		name: "Unit 1",
-		description: "inside Unit 1"
+		description: "inside Unit 1",
+		address: "2650+Durant+Avenue,Berkeley,CA"
 	});
 	Pickups.insert({
 		name: "Unit 2",
-		description: "inside Unit 2"
+		description: "inside Unit 2",
+		address: "2650+Haste+Avenue,Berkeley,CA"
 	});
 	Pickups.insert({
 		name: "Unit 3",
-		description: "inside Unit 3"
+		description: "inside Unit 3",
+		address: "2400+Durant+Avenue,Berkeley,CA"
 	});
 	Pickups.insert({
 		name: "Foothill",
-		description: "inside Foothill"
+		description: "inside Foothill",
+		address: "2700+Hearst,Berkeley,CA"
 	});
 	Pickups.insert({
 		name: "Clark Kerr",
-		description: "inside Clark Kerr"
+		description: "inside Clark Kerr",
+		address: "2601+Warring+Street,Berkeley,CA"
+	});
+	Pickups.insert({
+		name: "Stern Hall",
+		description: "inside Stern Hall",
+		address: "Hearst+Avenue+and+Highland+Place,Berkeley,CA"
 	});
 }
 
@@ -138,6 +148,53 @@ if (Pickups.find().count() === 0) {
 // 		quota: 120,
 // 		delivery_type: 2
 // 	});
+// }
+
+if (PickupStores.find().count() === 0) {
+	stores = Stores.find().fetch();
+	pickups = Pickups.find().fetch();
+
+
+	for (s in stores) {
+		for (p in pickups) {
+			getURL = "https://maps.googleapis.com/maps/api/directions/json?origin="
+			+ stores[s].address + "&destination=" + pickups[p].address + "&key=" +
+			"AIzaSyCIy_5Gn9SFxHI4bNTveFGOFjVYW2OX35M";
+
+			// error check
+			response = Meteor.http.get(getURL);
+			data = JSON.parse(response.content);
+			distance = data.routes[0].legs[0].distance; // distance obj
+			if (distance.value > 1607) {
+				shared = true;
+			} else {
+				shared = false;
+			}
+
+			PickupStores.insert({
+				pickup_id: pickups[p]._id,
+				store_id: stores[s]._id,
+				distance: distance,
+				quota: stores[s].quota,
+				shared: shared
+			});
+
+		// console.log(data);
+		// console.log(data);
+		// console.log(data.routes[0]);
+		// console.log(data.routes[0].legs[0].distance.text)
+		}
+	// }
+	}
+}
+
+// 	getURL = "https://maps.googleapis.com/maps/api/directions/json?origin=8300+Oakport+Street,Oakland,CA&destination=Hearst+Avenue+and+Highland+Place,Berkeley,CA&key=AIzaSyCIy_5Gn9SFxHI4bNTveFGOFjVYW2OX35M"
+
+// 	data = Meteor.http.get(getURL);
+
+// 	dataObj = JSON.parse(data.content);
+// 	console.log(dataObj.routes[0].legs[0].distance);
+// 	//console.log(data.content.routes[0].legs[0].distance.text);
 // }
 
 //======================================================================================================

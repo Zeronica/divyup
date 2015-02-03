@@ -129,16 +129,19 @@ if (Pickups.find().count() === 0) {
 	});
 }
 
-//pickupStores
-if (PickupStores.find().count() === 0) {
-	PickupStores.insert({
-		pickup_id: Pickups.findOne({name: "Unit 3"})._id,
-		store_id: Stores.findOne({storename: "In-n-Out"})._id,
-		distance: 12,
-		quota: 120,
-		delivery_type: 2
-	});
-}
+// //pickupStores
+// if (PickupStores.find().count() === 0) {
+// 	PickupStores.insert({
+// 		pickup_id: Pickups.findOne({name: "Unit 3"})._id,
+// 		store_id: Stores.findOne({storename: "In-n-Out"})._id,
+// 		distance: 12,
+// 		quota: 120,
+// 		delivery_type: 2
+// 	});
+// }
+
+//======================================================================================================
+//======================================================================================================
 
 // Divys
 s = Stores.findOne()

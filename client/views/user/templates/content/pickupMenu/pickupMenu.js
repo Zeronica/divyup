@@ -10,7 +10,7 @@ Template.pickupMenu.events({
 		if (r) {
 			Meteor.call("setPickupForUser", {pickup_id: this._id}, function(err){
 				if (err)
-					throw err.reason;
+					return alert(err.reason);
 				Router.go("userHome");
 			});
 		}

@@ -1,6 +1,5 @@
 <template name="foodMenu">
 	<ul class="list-group">
-		{{>backButton router_code="Router.go('storeMenu')" }}
 		{{#each f_menuItems}}	
 		  <li class="list-group-item" id="foodItem">
 		    <span class="badge">${{price}}</span>

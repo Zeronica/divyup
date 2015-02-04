@@ -16,3 +16,13 @@ Template.storeItem.helpers({
 		return "Walker delivery";
 	}
 })
+
+Template.storeItem.events({
+	'click #item': function() {
+			Meteor.call("orderToNewDivy", {pickupStore_id: this._id}, function(err,result){
+				if (err)
+					return alert(err.reason);
+				Router.go("foodMenu", {_id: result});
+			});
+		}
+})

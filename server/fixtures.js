@@ -182,27 +182,10 @@ if (PickupStores.find().count() === 0) {
 				quota: stores[s].quota,
 				shared: shared
 			});
-
-		// console.log(data);
-		// console.log(data);
-		// console.log(data.routes[0]);
-		// console.log(data.routes[0].legs[0].distance.text)
 		}
 	// }
 	}
 }
-
-// 	getURL = "https://maps.googleapis.com/maps/api/directions/json?origin=8300+Oakport+Street,Oakland,CA&destination=Hearst+Avenue+and+Highland+Place,Berkeley,CA&key=AIzaSyCIy_5Gn9SFxHI4bNTveFGOFjVYW2OX35M"
-
-// 	data = Meteor.http.get(getURL);
-
-// 	dataObj = JSON.parse(data.content);
-// 	console.log(dataObj.routes[0].legs[0].distance);
-// 	//console.log(data.content.routes[0].legs[0].distance.text);
-// }
-
-//======================================================================================================
-//======================================================================================================
 
 // Divys
 s = Stores.findOne()
@@ -222,11 +205,4 @@ if (ProcessingDivys.find().count() === 0) {
 		status: 1
 	});
 }
-
-// // PickupAreas
-// if (PickupAreas.find().count() === 0) {
-// 	PickupAreas.insert({
-		
-// 	})
-// }
 

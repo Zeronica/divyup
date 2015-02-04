@@ -21,7 +21,7 @@ Template.checkout.events({
 		if (r) {
 			Meteor.call("checkoutCurrentOrder", function(err, result){
 				if(err)
-					alert(err.reason);
+					return alert(err.reason);
 				alert("succesfully checked out!");
 				// temporary code
 				Router.go("storeMenu");

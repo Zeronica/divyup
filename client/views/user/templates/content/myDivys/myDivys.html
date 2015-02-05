@@ -1,0 +1,20 @@
+<template name="myDivys">
+	{{> header title="Current Divys"}}
+
+	<ul class="list">
+		{{#each f_processingDivys}}
+			{{> pickupItem}}
+		{{/each}}
+	</ul>
+
+	{{> footer}}
+</template>
+
+<template name="divyItem">
+  <li class="list__item list__item--tappable" id="pickupItem">
+    <span class="list__item__line-height">
+    	{{store}}
+    	<span style="float: right; font-family: courier; font-weight: normal">{{status}}</span>
+    </span>
+  </li>
+</template>

@@ -1,0 +1,61 @@
+====================================================================================
+changes since
+====================================================================================
+We are no longer delivering to multiple pickup locations. Instead regardless of driver
+or bike/walk, we always deliver to one dropoff location.
+====================================================================================
+Quotas
+====================================================================================
+divys range from a minimum to a maximum. Ex: $35 to $120, delivery costs 20% - 25%
+Hence, range from $7 to $30. 
+Once saturation is reached, quotas can be raised to $50 to $150. delivery costs %20. 
+Hence, range from $10 to $30.
+====================================================================================
+Delivery Costs
+====================================================================================
+
+Formulas for delivery costs
+--------------------------------------------------------------------------------------
+bikes and walkers: 
+$5 + $4.00 per mile ($7 dollar minimum)
+
+drivers
+$5  + $2.00 per mile
+ 
+example wait times
+--------------------------------------------------------------------------------------
+$quota * minutes
+
+Example:
+--------------------------------------------------------------------------------------- 
+<= .5 miles: (bike/walk)
+$35 quota
+$7 delivery cost
+
+1 mile (bike/walk)
+$45 quota
+$9 delivery cost
+
+1.5 mile (bike/driver)
+$55 quota
+$11 delivery cost
+
+2 miles (driver from here on out)
+$45 quota
+$9 delivery cost
+
+5 miles
+$75 quota 
+$15 delivery cost
+
+8 miles
+$105
+$21 delivery cost
+
+10 miles
+$100
+$25
+
+13 miles
+$124
+$31

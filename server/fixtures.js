@@ -189,11 +189,19 @@ if (PickupStores.find().count() === 0) {
 
 // Divys
 s = Stores.findOne()
+p = Pickups.findOne({name: "Unit 1"});
 
 if (Divys.find().count() === 0) {
 	var divy_id = Divys.insert({
 		store_id : s._id,
-		archived: false
+		quota_id : s.quota
+	});
+}
+
+if (PickupDivys.find().count() === 0) {
+	PickupDivys.insert({
+		divy_id: divy_id,
+		pickup_id: p._id
 	});
 }
 

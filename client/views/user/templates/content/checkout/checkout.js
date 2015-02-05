@@ -16,7 +16,7 @@ Template.checkout.helpers({
 });
 
 Template.checkout.events({
-	'click': function() {
+	'click #checkout': function() {
 		r = confirm("Checkout cart?");
 		if (r) {
 			Meteor.call("checkoutCurrentOrder", function(err, result){
